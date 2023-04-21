@@ -135,7 +135,7 @@ autocmd('FileType', {
         })
 
         local visual_a =
-            [[:<C-U>lua require('conf.builtin_extend').textobj_code_chunk('a', '^# ?%%%%.*', '^# ?%%%%$', true)<CR>]]
+        [[:<C-U>lua require('conf.builtin_extend').textobj_code_chunk('a', '^# ?%%%%.*', '^# ?%%%%$', true)<CR>]]
 
         bufmap(0, 'x', 'a<Leader>c', visual_a, {
             silent = true,
@@ -143,7 +143,7 @@ autocmd('FileType', {
         })
 
         local visual_i =
-            [[:<C-U>lua require('conf.builtin_extend').textobj_code_chunk('i', '^# ?%%%%.*', '^# ?%%%%$', true)<CR>]]
+        [[:<C-U>lua require('conf.builtin_extend').textobj_code_chunk('i', '^# ?%%%%.*', '^# ?%%%%$', true)<CR>]]
 
         bufmap(0, 'x', 'i<Leader>c', visual_i, {
             silent = true,
@@ -228,7 +228,8 @@ command('PyVenvActivate', function(options)
 end, {
     nargs = 1,
     complete = 'dir',
-    desc = [[This command activates a python venv. The path to the python virtual environment may include "/bin/" or not.]],
+    desc =
+    [[This command activates a python venv. The path to the python virtual environment may include "/bin/" or not.]],
 })
 
 command('PyVenvDeactivate', function(options)
@@ -271,8 +272,8 @@ M.load.vimtex = function()
     vim.g.vimtex_enabled = 1
     vim.g.vimtex_quickfix_mode = 0 -- don't open quickfix list automatically
     vim.g.vimtex_delim_toggle_mod_list = {
-        { '\\bigl', '\\bigr' },
-        { '\\Bigl', '\\Bigr' },
+        { '\\bigl',  '\\bigr' },
+        { '\\Bigl',  '\\Bigr' },
         { '\\biggl', '\\biggr' },
         { '\\Biggl', '\\Biggr' },
     }
@@ -402,7 +403,7 @@ M.load.nvimr = function()
     vim.g.R_user_maps_only = 1
     vim.g.R_hl_term = 0
     vim.g.R_esc_term = 0
-    vim.g.R_buffer_opts = 'buflisted' -- nvimr prevents repl window to be automatically resized, reenable it
+    vim.g.R_buffer_opts = 'buflisted'     -- nvimr prevents repl window to be automatically resized, reenable it
     vim.g.R_objbr_place = 'console,right' -- show object browser at the right of the console
     vim.g.R_nvim_wd = 1
     vim.g.R_rmdchunk = 0

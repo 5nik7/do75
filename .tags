@@ -38,40 +38,51 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/;"	extras:pseudo
 !_TAG_PROGRAM_VERSION	6.0.0	/p6.0.20230416.0/;"	extras:pseudo
 build	nvim/lua/load_plugins.lua	/^        build = function()$/;"	kind:function	line:50	language:Lua	roles:def
-callback	nvim/lua/conf/colorscheme.lua	/^    callback = function()$/;"	kind:function	line:291	language:Lua	roles:def
-callback	nvim/lua/conf/mini.lua	/^    callback = function()$/;"	kind:function	line:63	language:Lua	roles:def
+callback	nvim/lua/conf/colorscheme.lua	/^    callback = function()$/;"	kind:function	line:292	language:Lua	roles:def
+callback	nvim/lua/conf/colorschemenv.lua	/^    callback = function()$/;"	kind:function	line:299	language:Lua	roles:def
+callback	nvim/lua/conf/mini.lua	/^    callback = function()$/;"	kind:function	line:71	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:135	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:191	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:201	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:328	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:340	language:Lua	roles:def
 callback	nvim/lua/conf/ui.lua	/^        callback = function()$/;"	kind:function	line:352	language:Lua	roles:def
-colorscheme_cmd	nvim/lua/conf/colorscheme.lua	/^local function colorscheme_cmd(bg, theme)$/;"	kind:function	line:39	language:Lua	roles:def
+colorscheme_cmd	nvim/lua/conf/colorscheme.lua	/^local function colorscheme_cmd(bg, theme)$/;"	kind:function	line:40	language:Lua	roles:def
+colorscheme_cmd	nvim/lua/conf/colorschemenv.lua	/^local function colorscheme_cmd(bg, theme)$/;"	kind:function	line:47	language:Lua	roles:def
 compute_workspace_diff	nvim/lua/conf/ui.lua	/^    local function compute_workspace_diff()$/;"	kind:function	line:152	language:Lua	roles:def
 cond	nvim/lua/conf/ui.lua	/^                    cond = function()$/;"	kind:function	line:82	language:Lua	roles:def
 default_colorsheme	nvim/lua/conf/colorscheme.lua	/^function M.default_colorsheme()$/;"	kind:function	line:3	language:Lua	scope:unknown:M	roles:def
+default_colorsheme	nvim/lua/conf/colorschemenv.lua	/^function M.default_colorsheme()$/;"	kind:function	line:3	language:Lua	scope:unknown:M	roles:def
 devicons	nvim/lua/conf/ui.lua	/^M.load.devicons = function()$/;"	kind:function	line:248	language:Lua	scope:unknown:M.load	roles:def
 dir_is_parent_of_buf	nvim/lua/conf/ui.lua	/^        local function dir_is_parent_of_buf(buf, dir)$/;"	kind:function	line:31	language:Lua	roles:def
 encoding	nvim/lua/conf/ui.lua	/^    local encoding = function()$/;"	kind:function	line:9	language:Lua	roles:def
 fileformat	nvim/lua/conf/ui.lua	/^    local fileformat = function()$/;"	kind:function	line:14	language:Lua	roles:def
-format_item	nvim/lua/conf/colorscheme.lua	/^        format_item = function(item)$/;"	kind:function	line:262	language:Lua	roles:def
-format_item	nvim/lua/conf/colorscheme.lua	/^        format_item = function(item)$/;"	kind:function	line:273	language:Lua	roles:def
+format_item	nvim/lua/conf/colorscheme.lua	/^        format_item = function(item)$/;"	kind:function	line:263	language:Lua	roles:def
+format_item	nvim/lua/conf/colorscheme.lua	/^        format_item = function(item)$/;"	kind:function	line:274	language:Lua	roles:def
+format_item	nvim/lua/conf/colorschemenv.lua	/^        format_item = function(item)$/;"	kind:function	line:270	language:Lua	roles:def
+format_item	nvim/lua/conf/colorschemenv.lua	/^        format_item = function(item)$/;"	kind:function	line:281	language:Lua	roles:def
 get_diagnostics_in_current_root_dir	nvim/lua/conf/ui.lua	/^    diagnostics_sources.get_diagnostics_in_current_root_dir = function()$/;"	kind:function	line:26	language:Lua	scope:unknown:diagnostics_sources	roles:def
 get_num_of_diags_in_buf	nvim/lua/conf/ui.lua	/^        local function get_num_of_diags_in_buf(severity_level, buf)$/;"	kind:function	line:45	language:Lua	roles:def
 get_workspace_diff	nvim/lua/conf/ui.lua	/^M.get_workspace_diff = function()$/;"	kind:function	line:209	language:Lua	scope:unknown:M	roles:def
-highlight_link	nvim/lua/conf/mini.lua	/^local highlight_link = function(opts)$/;"	kind:function	line:50	language:Lua	roles:def
+highlight_link	nvim/lua/conf/mini.lua	/^local highlight_link = function(opts)$/;"	kind:function	line:58	language:Lua	roles:def
 init_workspace_diff	nvim/lua/conf/ui.lua	/^    local function init_workspace_diff()$/;"	kind:function	line:171	language:Lua	roles:def
 is_a_git_dir	nvim/lua/conf/ui.lua	/^    local function is_a_git_dir()$/;"	kind:function	line:147	language:Lua	roles:def
 lualine	nvim/lua/conf/ui.lua	/^M.load.lualine = function()$/;"	kind:function	line:7	language:Lua	scope:unknown:M.load	roles:def
 notify	nvim/lua/conf/ui.lua	/^M.load.notify = function()$/;"	kind:function	line:235	language:Lua	scope:unknown:M.load	roles:def
 overrides	nvim/lua/conf/colorscheme.lua	/^        overrides = function(colors)$/;"	kind:function	line:20	language:Lua	roles:def
-pick_colorscheme	nvim/lua/conf/colorscheme.lua	/^local pick_colorscheme = function(bg, theme_id)$/;"	kind:function	line:190	language:Lua	roles:def
-pick_quickly	nvim/lua/conf/colorscheme.lua	/^function M.pick_quickly()$/;"	kind:function	line:270	language:Lua	scope:unknown:M	roles:def
-pick_randomly	nvim/lua/conf/colorscheme.lua	/^function M.pick_randomly()$/;"	kind:function	line:203	language:Lua	scope:unknown:M	roles:def
+overrides	nvim/lua/conf/colorschemenv.lua	/^        overrides = function(colors)$/;"	kind:function	line:20	language:Lua	roles:def
+pick_colorscheme	nvim/lua/conf/colorscheme.lua	/^local pick_colorscheme = function(bg, theme_id)$/;"	kind:function	line:191	language:Lua	roles:def
+pick_colorscheme	nvim/lua/conf/colorschemenv.lua	/^local pick_colorscheme = function(bg, theme_id)$/;"	kind:function	line:198	language:Lua	roles:def
+pick_quickly	nvim/lua/conf/colorscheme.lua	/^function M.pick_quickly()$/;"	kind:function	line:271	language:Lua	scope:unknown:M	roles:def
+pick_quickly	nvim/lua/conf/colorschemenv.lua	/^function M.pick_quickly()$/;"	kind:function	line:278	language:Lua	scope:unknown:M	roles:def
+pick_randomly	nvim/lua/conf/colorscheme.lua	/^function M.pick_randomly()$/;"	kind:function	line:204	language:Lua	scope:unknown:M	roles:def
+pick_randomly	nvim/lua/conf/colorschemenv.lua	/^function M.pick_randomly()$/;"	kind:function	line:211	language:Lua	scope:unknown:M	roles:def
 reopen_qflist_by_trouble	nvim/lua/conf/ui.lua	/^M.reopen_qflist_by_trouble = function()$/;"	kind:function	line:399	language:Lua	scope:unknown:M	roles:def
-select_colorscheme_based_on_bg	nvim/lua/conf/colorscheme.lua	/^local function select_colorscheme_based_on_bg(bg)$/;"	kind:function	line:245	language:Lua	roles:def
+select_colorscheme_based_on_bg	nvim/lua/conf/colorscheme.lua	/^local function select_colorscheme_based_on_bg(bg)$/;"	kind:function	line:246	language:Lua	roles:def
+select_colorscheme_based_on_bg	nvim/lua/conf/colorschemenv.lua	/^local function select_colorscheme_based_on_bg(bg)$/;"	kind:function	line:253	language:Lua	roles:def
 set_git_workspace_diff	nvim/lua/conf/ui.lua	/^M.set_git_workspace_diff = function()$/;"	kind:function	line:146	language:Lua	scope:unknown:M	roles:def
-switch_colorscheme_with_day_night	nvim/lua/conf/colorscheme.lua	/^function M.switch_colorscheme_with_day_night()$/;"	kind:function	line:224	language:Lua	scope:unknown:M	roles:def
+switch_colorscheme_with_day_night	nvim/lua/conf/colorscheme.lua	/^function M.switch_colorscheme_with_day_night()$/;"	kind:function	line:225	language:Lua	scope:unknown:M	roles:def
+switch_colorscheme_with_day_night	nvim/lua/conf/colorschemenv.lua	/^function M.switch_colorscheme_with_day_night()$/;"	kind:function	line:232	language:Lua	scope:unknown:M	roles:def
 trouble	nvim/lua/conf/ui.lua	/^M.load.trouble = function()$/;"	kind:function	line:252	language:Lua	scope:unknown:M.load	roles:def
 update_workspace_diff	nvim/lua/conf/ui.lua	/^    local function update_workspace_diff()$/;"	kind:function	line:181	language:Lua	roles:def
 which_key	nvim/lua/conf/ui.lua	/^M.load.which_key = function()$/;"	kind:function	line:286	language:Lua	scope:unknown:M.load	roles:def

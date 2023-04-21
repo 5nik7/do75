@@ -32,7 +32,7 @@ starter.setup {
             { action = 'Telescope oldfiles',     name = 'recent',   section = menu[1] },
             { action = 'Telescope find_files',   name = 'find',     section = menu[1] },
             { action = 'NvimTreeFindFileToggle', name = 'explorer', section = menu[1] },
-            { action = 'Lazy',                   name = 'lazy',     section = menu[1] },
+            { action = 'Lazy sync',              name = 'lazy',     section = menu[1] },
             { action = 'qall!',                  name = 'quit',     section = menu[1] },
         },
     },

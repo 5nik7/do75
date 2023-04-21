@@ -255,7 +255,6 @@ end
 lsp_configs.sql = function()
     require('lspconfig').sqls.setup {
         on_attach = function(client, bufnr)
-
             -- HACK: in nvim 0.9+, lspconfig will set &tagfunc to vim.lsp.tagfunc
             -- automatically. For lsp that does not support workspace symbol, this
             -- function may cause conflict because `cmp-nvim-tags` which uses tags to

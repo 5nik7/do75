@@ -171,7 +171,7 @@ M.load.nullls = function()
             source_wrapper {
                 null_ls.builtins.formatting.sql_formatter,
                 args = vim.fn.empty(vim.fn.glob(sql_formatter_config_file)) == 0
-                        and { '--config', sql_formatter_config_file }
+                    and { '--config', sql_formatter_config_file }
                     or nil,
                 -- this expression = 0 means this file exists.
             },

@@ -30,10 +30,13 @@ function M.default_colorsheme()
                 MiniStarterCurrent = { fg = palette_colors.fujiWhite, bg = palette_colors.waveBlue1 },
                 MiniStarterQuery = { fg = palette_colors.crystalBlue, bg = palette_colors.waveBlue1 },
                 CursorLine = { bg = palette_colors.waveBlue1 },
-                hl_header = { fg = palette_colors.sumiInk0, bg = palette_colors.peachRed, bold = true },
-                hl_buttons = { fg = palette_colors.winterYellow, bg = palette_colors.sumiInk3 },
-                hl_sc = { fg = palette_colors.sumiInk6, bg = palette_colors.sumiInk2, italic = true },
-                hl_footer = { fg = palette_colors.fujiGray },
+                TSRainbowRed = { fg = palette_colors.dragonGray3 },
+                TSRainbowYellow = { fg = palette_colors.dragonGray },
+                TSRainbowBlue = { fg = palette_colors.katanaGray },
+                TSRainbowOrange = { fg = palette_colors.lotusGray3 },
+                TSRainbowGreen = { fg = palette_colors.dragonBlack6 },
+                TSRainbowViolet = { fg = palette_colors.dragonGray2 },
+                TSRainbowCyan = { fg = palette_colors.dragonAsh },
             }
         end,
     }
