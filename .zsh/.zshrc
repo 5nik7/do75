@@ -1,17 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (passwor prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-
 
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_TITLE=true
@@ -51,57 +39,9 @@ source $HOME/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.zsh
 
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
+source $HOME/.aliases.zsh
+source $HOME/.exports.zsh
 
-alias l='exa -alH --icons --group-directories-first'
-alias lt='exa -T --icons'
-alias v='nvim'
-alias vim='nvim'
-alias c='clear'
-alias d='nnn -H'
-
-alias dots='cd $DOTFILES' 
-
-
-
-export DOTFILES="$HOME/git/do75"
-
-
-export XDG_DATA_HOME=${HOME}/.local/share
-export XDG_CONFIG_HOME=${HOME}/.config
-export XDG_STATE_HOME=${HOME}/.local/state
-export XDG_DATA_DIRS=/usr/local/share:/usr/share
-export XDG_CONFIG_DIRS=/etc/xdg
-export XDG_CACHE_HOME=${HOME}/.cache
-
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0 #GWSL
-export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}') #GWSL
-export GTK_THEME=Breeze-Dark
-export LIBGL_ALWAYS_INDIRECT=1 #GWSL
-export GDK_SCALE=2 #GWSL
-
-export MANPATH="/usr/local/man:$MANPATH"
-export MANPAGER='nvim +Man!'
-
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
-export LANG=en_US.UTF-8
-
-
-
-# User configuration
-
-export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
 
 if [ -d "$HOME/.bin" ]; then
 	PATH="$HOME/.bin:$PATH"
@@ -111,15 +51,34 @@ if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export STARSHIP_CACHE=~/.starship/cache
-export STARSHIP_CONFIG=~/.config/starship.toml
-
+#
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 eval "$(starship init zsh)"

@@ -34,6 +34,7 @@ if not vim.g.vscode then
     vim.o.termguicolors = true
 
     local gui_font = {
+        'JetBrains_Mono_Nerd_Font_Complete:h15',
         'Sauce_Code_Pro_Nerd_Font_Complete:h15',
         'Monaco_Nerd_Font_Complete:h15',
         'SF_Mono_Regular:h15',

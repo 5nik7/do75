@@ -85,6 +85,8 @@ keymap(
     opts_desc 'toggle cmdheight'
 )
 
+keymap("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+
 M.jk_as_esc = function()
     keymap('t', 'k', [[<BS><C-\><C-N>]], opts)
     keymap('i', 'k', [[<BS><ESC>]], opts)
