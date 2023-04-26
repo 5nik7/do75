@@ -32,6 +32,12 @@ main() {
   # Install editors and terminal multiplexers.
   loadTmuxPlugins
 
+  # Final personalization
+
+   [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
+
+ }
+
 # -------------------------------------------------------------------------- }}}
 # {{{ Update OS
 
