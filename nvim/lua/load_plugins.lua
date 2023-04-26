@@ -26,6 +26,16 @@ require('lazy').setup({
     { 'folke/which-key.nvim' },
     { "goolord/alpha-nvim" },
     { 'kyazdani42/nvim-web-devicons' },
+    -- {
+    --     'folke/noice.nvim',
+    --     event = "VeryLazy",
+    --     dependencies = {
+    --         { 'folke/which-key.nvim' },
+    --         { 'MunifTanjim/nui.nvim' },
+    --         { 'rcarriga/nvim-notify' },
+    --     },
+    -- },
+    -- { 'stevearc/dressing.nvim',          lazy = true},
 
     -- text-editing, motions, jumps tools
     { 'justinmk/vim-sneak' },

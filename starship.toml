@@ -107,6 +107,9 @@ success_symbol = "[](green)"
 error_symbol = "[](red)"
 vimcmd_symbol = "[](green)"
 
+[cmd_duration]
+format = '[$duration]($style) '
+
 [time]
 disabled = false
 format = '[$time]($style) '

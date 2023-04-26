@@ -6,6 +6,7 @@ if not vim.g.vscode then
 
     require 'conf.ui'
     require 'conf.mini'
+    -- require 'conf.noice'
 
     require 'conf.text_edit'
     require 'conf.cli_tools'
