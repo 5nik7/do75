@@ -1,4 +1,4 @@
-export DOTFILES="$HOME/git/do75"
+export DOTFILES="$HOME/do75"
 
 export XDG_DATA_HOME=${HOME}/.local/share
 export XDG_CONFIG_HOME=${HOME}/.config

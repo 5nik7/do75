@@ -1,0 +1,67 @@
+# {{{ pacman packages
+
+pacman_packages=(
+  "base-devel"
+  "cmake"
+  "curl"
+  "dunst"
+  "git"
+  "go"
+  "meld"
+  "ninja"
+  "reflector"
+  "openssh"
+  "tmux"
+  "tree-sitter"
+  "unzip"
+  "which"
+  "wget"
+  "xclip"
+  "zsh"
+  "fzf"
+)
+
+# -------------------------------------------------------------------------- }}}
+# {{{ ruby-build packages
+
+ruby_build_packages=(
+  "base-devel"
+  "libffi"
+  "libyaml"
+  "rust"
+)
+
+# -------------------------------------------------------------------------- }}}
+# {{{ pip packages
+
+pip_packages=(
+  "pynvim"
+)
+
+# -------------------------------------------------------------------------- }}}
+# {{{ yay packages
+
+yay_packages=(
+  "bat"
+  "bluetooth-autoconnect"
+  "dunst"
+  "exa"
+  "fd"
+  "go"
+  "jre-openjdk-headless"
+  "luarocks"
+  "nodejs"
+  "npm"
+  "python"
+  "python-pip"
+  "ranger"
+  "ripgrep"
+  "ripgrep-all"
+  "tldr"
+  "ttf-jetbrains-mono"
+  "ttf-jetbrains-mono-nerd""
+  "yarn"
+)
+
+
+# -------------------------------------------------------------------------- }}}
