@@ -10,6 +10,7 @@ main() {
 
   # Update operating system and keys.
   updateOSKeys
+  mkinRoot
   updateOS
 
   # Install packages.
@@ -18,8 +19,6 @@ main() {
   installYayPackages
   installPipPackages
 
-  # Update mirrors.
-  updateMirrorList
 
   # Install programming languages.
   installRuby
@@ -29,9 +28,6 @@ main() {
   # Build applications from source code.
   buildNeovim
   addProgramsNeoVimInterfacesWith
-
-  # Install editors and terminal multiplexers.
-  cloneTmuxPlugins
 
   # Setup symlinks.
   deleteSymLinks
@@ -68,6 +64,13 @@ updateOSKeys() {
     sudo pacman-key --refresh-keys
     sudo pacman -Sy archlinux-keyring --noconfirm
   fi
+}
+
+# -------------------------------------------------------------------------- }}}
+# {{{ Source all configuration files
+mkinRoot() {
+    say 'Making directory.'
+    mkdir -v $inRoot
 }
 
 # -------------------------------------------------------------------------- }}}
@@ -184,19 +187,6 @@ installPipPackages() {
 
 
 # -------------------------------------------------------------------------- }}}
-# {{{ cloneTmuxPlugins
-
-cloneTmuxPlugins () {
-  if [[ $tmuxPluginsFlag == 1 ]]; then
-    src=https://github.com/tmux-plugins/tpm.git
-    dst=~/.config/tmux/plugins
-    say 'Cloning TMUX plugins.'
-    git clone $src $dst
-
-  fi
-}
-
-# -------------------------------------------------------------------------- }}}
 # {{{ Build Neovim
 
 buildNeovim() {
@@ -245,18 +235,7 @@ addProgramsNeoVimInterfacesWith() {
 }
 
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Update mirror list with reflector
 
-updateMirrorList () {
-  if [[ $mirroirFlag == 1 ]]; then
-    say 'Updating mirror list.'
-
-    sudo reflector -c "United States" \
-      -f 12 -l 10 -n 12 \
-      --save /etc/pacman.d/mirrorlist
-  fi
-}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Install Ruby

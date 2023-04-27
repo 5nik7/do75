@@ -8,18 +8,17 @@
 # -------------------------------------------------------------------------- }}}
 # {{{ Products to install.
 
-osUpdateFlag=1
+osUpdateFlag=0
 osUpdateKeysFlag=0
 pacmanPackagesFlag=1
 paruPackagesFlag=1
-yayPackagesFlag=0
+yayPackagesFlag=1
 pipPackagesFlag=1
 rbenvFlag=1
 rustFlag=1
-tmuxPluginsFlag=1
-neovimBuildFlag=1
-symlinksFlag=1
-zshFlag=1
+neovimBuildFlag=0
+symlinksFlag=0
+zshFlag=0
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Other variables used during product installation.
