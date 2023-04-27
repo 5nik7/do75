@@ -9,6 +9,7 @@ main() {
   sourceFiles
 
   # Update operating system and keys.
+  updateOSKeys
   updateOS
 
   # Install packages.
@@ -64,6 +65,18 @@ updateOS() {
   [[ $osUpdateFlag == 1 ]] && sayAndDo 'sudo pacman -Syyu --noconfirm'
 }
 
+# -------------------------------------------------------------------------- }}}
+# {{{ Update OS Keys
+
+updateOSKeys() {
+  if [[ $osUpdateKeysFlag == 1 ]]; then
+    say 'Update keys'
+    sudo pacman-key --init
+    sudo pacman-key --populate
+    sudo pacman-key --refresh-keys
+    sudo pacman -Sy archlinux-keyring --noconfirm
+  fi
+}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Install pacman packages.

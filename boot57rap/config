@@ -8,8 +8,8 @@
 # -------------------------------------------------------------------------- }}}
 # {{{ Products to install.
 
-neovimBuildFlag=1
 osUpdateFlag=1
+osUpdateKeysFlag=1
 pacmanPackagesFlag=1
 paruPackagesFlag=1
 yayPackagesFlag=0
@@ -17,6 +17,7 @@ pipPackagesFlag=1
 rbenvFlag=1
 rustFlag=1
 tmuxPluginsFlag=1
+neovimBuildFlag=1
 symlinksFlag=1
 
 # -------------------------------------------------------------------------- }}}
