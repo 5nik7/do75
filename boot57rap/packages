@@ -23,7 +23,7 @@ pacman_packages=(
 # -------------------------------------------------------------------------- }}}
 # {{{ paru packages
 
-paru _packages=(
+paru_packages=(
   "bat"
   "bluetooth-autoconnect"
   "exa"

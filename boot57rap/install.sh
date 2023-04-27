@@ -88,7 +88,7 @@ installParuPackages() {
     makepkg -si
     cd ..
     
-    paru -Syu --noconfirm ${yay_packages[@]}
+    paru -Syu --noconfirm ${paru_packages[@]}
   fi
 }
 
