@@ -27,11 +27,24 @@ alias pacupd="pacman -Qu"
 alias parucheck="paru -Gp"
 alias cleanpac='sudo pacman -Rns $(pacman -Qtdq); paru -c'
 alias installed="grep -i installed /var/log/pacman.log"
-alias ls="exa --color=auto --icons"
-alias l="ls -l"
-alias la="ls -a"
-alias lla="ls -la"
-alias lt="ls --tree"
+
+# use exa if available
+if [[ -x "$(command -v exa)" ]]; then
+  alias ll="exa -HF --icons --git --long --no-user --no-time --group-directories-first"
+  alias l="exa -HF --icons --git --all --long --no-time --no-user --group-directories-first"
+else
+  alias l="ls -lah ${colorflag}"
+  alias ll="ls -lFh ${colorflag}"
+fi
+alias la="ls -AF ${colorflag}"
+alias lld="ls -l | grep ^d"
+alias cp='cp -rv'
+alias mv='mv -v'
+alias rmf='rm -rfv'
+alias lnf='ln -sfv'
+alias mkdir='mkdir -v'
+
+alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 alias cat="bat --color always --plain"
 alias grep='grep --color=auto'
 alias mv='mv -v'
@@ -216,5 +229,11 @@ alias gupav='git pull --rebase --autostash -v'
 alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+alias t='tmux'
+alias tls='tmux ls'
+alias tks='tmux kill-session'
+alias v='nvim'
+alias vim='nvim'
 
+alias d='ranger'
 # vim:ft=zsh

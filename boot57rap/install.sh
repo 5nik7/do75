@@ -25,10 +25,6 @@ main() {
   installRubyGems
   installRust
 
-  # Setup symlinks.
-  deleteSymLinks
-  createSymLinks
-
   # Build applications from source code.
   buildNeovim
   addProgramsNeoVimInterfacesWith
@@ -36,6 +32,10 @@ main() {
   # Install editors and terminal multiplexers.
   cloneTmuxPlugins
 
+# Setup symlinks.
+  deleteSymLinks
+  createSymLinks
+  
   # Final personalization
 
    # [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
@@ -120,75 +120,6 @@ installPipPackages() {
 
 
 
-
-# -------------------------------------------------------------------------- }}}
-# {{{ deleteSymLinks
-
-deleteSymLinks() {
-  if [[ $symlinksFlag == 1 ]]; then
-    echo "Deleting symbolic links."
-    # Symlinks at .config
-#    rm -rfv ~/.config/Thunar
-    rm -rfv ~/.config/btop
-    rm -rfv ~/.config/cava
-    rm -rfv ~/.config/dunst
-    rm -rfv ~/.config/hypr
-    rm -rfv ~/.config/neofetch
-    rm -rfv ~/.config/nvim
-    rm -rfv ~/.config/pipewire
-    rm -rfv ~/.config/ranger
-    rm -rfv ~/.config/rofi
-    rm -rfv ~/.config/starship
-    rm -rfv ~/.config/swaylock
-    rm -rfv ~/.config/tmux
-    rm -rfv ~/.config/viewnior
-    rm -rfv ~/.config/waybar
-    rm -rfv ~/.config/wezterm
-    rm -rfv ~/.config/wlogout
-    rm -rfv ~/.config/zsh
-    rm -fsv ~/.local/bin/wrappedhl
-    rm -fsv ~/.scripts
-    rm -fsv ~/.wallpapers
-    rm -rfv ~/.gitconfig
-    rm -fsv ~/.tmux.conf
-    rm -rfv ~/.zshenv 
-  fi
-}
-
-# -------------------------------------------------------------------------- }}}
-# {{{ createSymLinks
-
-createSymLinks() {
-  if [[ $symlinksFlag == 1 ]]; then
-    say 'Creating symbolic links.'
-    # Symlinks at .config
-    ln -fsv ~/do75/.config/btop                         ~/.config/btop
-    ln -fsv ~/do75/.config/cava                         ~/.config/cava
-    ln -fsv ~/do75/.config/dunst                        ~/.config/dunst
-    ln -fsv ~/do75/.config/hypr                         ~/.config/hypr
-    ln -fsv ~/do75/.config/neofetch                     ~/.config/neofetch
-    ln -fsv ~/do75/.config/nvim	                        ~/.config/nvim
-    ln -fsv ~/do75/.config/pipewire                     ~/.config/pipewire
-    ln -fsv ~/do75/.config/ranger                       ~/.config/ranger
-    ln -fsv ~/do75/.config/rofi                         ~/.config/rofi
-    ln -fsv ~/do75/.config/starship                     ~/.config/starship
-    ln -fsv ~/do75/.config/swaylock                     ~/.config/swaylock
-    ln -fsv ~/do75/.config/tmux                         ~/.config/tmux
-    ln -fsv ~/do75/.config/viewnior                     ~/.config/viewnior
-    ln -fsv ~/do75/.config/waybar                       ~/.config/waybar
-    ln -fsv ~/do75/.config/wezterm                      ~/.config/wezterm
-    ln -fsv ~/do75/.config/wlogout                      ~/.config/wlogout
-    ln -fsv ~/do75/.config/zsh                          ~/.config/zsh
-    ln -fsv ~/do75/.local/bin/wrappedhl                 ~/.local/bin/wrappedhl
-    ln -fsv ~/do75/.scripts                             ~/.scripts
-    ln -fsv ~/do75/.wallpapers                          ~/.wallpapers
-    ln -fsv ~/do75/.gitconfig                           ~/.gitconfig
-    ln -fsv ~/do75/.tmux.conf                           ~/.tmux.conf
-    ln -fsv ~/do75/.zshenv                              ~/.zshenv
-
-    # Symlinks at $HOME
- fi
-}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ cloneTmuxPlugins
@@ -314,6 +245,75 @@ installRust() {
     curl --proto '=https' --tlsv1.2 -sFf https://sh.rustup.rs | sh
     echo 'Rust installed.'
   fi
+}
+
+# -------------------------------------------------------------------------- }}}
+# {{{ deleteSymLinks
+
+deleteSymLinks() {
+  if [[ $symlinksFlag == 1 ]]; then
+    echo "Deleting symbolic links."
+    # Symlinks at .config
+#    rm -rfv ~/.config/Thunar
+    rm -rfv ~/.config/btop
+    rm -rfv ~/.config/cava
+    rm -rfv ~/.config/dunst
+    rm -rfv ~/.config/hypr
+    rm -rfv ~/.config/neofetch
+    rm -rfv ~/.config/nvim
+    rm -rfv ~/.config/pipewire
+    rm -rfv ~/.config/ranger
+    rm -rfv ~/.config/rofi
+    rm -rfv ~/.config/starship
+    rm -rfv ~/.config/swaylock
+    rm -rfv ~/.config/tmux
+    rm -rfv ~/.config/viewnior
+    rm -rfv ~/.config/waybar
+    rm -rfv ~/.config/wezterm
+    rm -rfv ~/.config/wlogout
+    rm -rfv ~/.config/zsh
+    rm -fsv ~/.local/bin/wrappedhl
+    rm -fsv ~/.scripts
+    rm -fsv ~/.wallpapers
+    rm -rfv ~/.gitconfig
+    rm -fsv ~/.tmux.conf
+    rm -rfv ~/.zshenv 
+  fi
+}
+
+# -------------------------------------------------------------------------- }}}
+# {{{ createSymLinks
+
+createSymLinks() {
+  if [[ $symlinksFlag == 1 ]]; then
+    say 'Creating symbolic links.'
+    # Symlinks at .config
+    ln -fsv ~/do75/.config/btop                         ~/.config/btop
+    ln -fsv ~/do75/.config/cava                         ~/.config/cava
+    ln -fsv ~/do75/.config/dunst                        ~/.config/dunst
+    ln -fsv ~/do75/.config/hypr                         ~/.config/hypr
+    ln -fsv ~/do75/.config/neofetch                     ~/.config/neofetch
+    ln -fsv ~/do75/.config/nvim	                        ~/.config/nvim
+    ln -fsv ~/do75/.config/pipewire                     ~/.config/pipewire
+    ln -fsv ~/do75/.config/ranger                       ~/.config/ranger
+    ln -fsv ~/do75/.config/rofi                         ~/.config/rofi
+    ln -fsv ~/do75/.config/starship                     ~/.config/starship
+    ln -fsv ~/do75/.config/swaylock                     ~/.config/swaylock
+    ln -fsv ~/do75/.config/tmux                         ~/.config/tmux
+    ln -fsv ~/do75/.config/viewnior                     ~/.config/viewnior
+    ln -fsv ~/do75/.config/waybar                       ~/.config/waybar
+    ln -fsv ~/do75/.config/wezterm                      ~/.config/wezterm
+    ln -fsv ~/do75/.config/wlogout                      ~/.config/wlogout
+    ln -fsv ~/do75/.config/zsh                          ~/.config/zsh
+    ln -fsv ~/do75/.local/bin/wrappedhl                 ~/.local/bin/wrappedhl
+    ln -fsv ~/do75/.scripts                             ~/.scripts
+    ln -fsv ~/do75/.wallpapers                          ~/.wallpapers
+    ln -fsv ~/do75/.gitconfig                           ~/.gitconfig
+    ln -fsv ~/do75/.tmux.conf                           ~/.tmux.conf
+    ln -fsv ~/do75/.zshenv                              ~/.zshenv
+
+    # Symlinks at $HOME
+ fi
 }
 
 
