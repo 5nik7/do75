@@ -74,7 +74,10 @@ updateOSKeys() {
 # {{{ Update OS
 
 updateOS() {
-  [[ $osUpdateFlag == 1 ]] && sayAndDo 'sudo pacman -Syyu --noconfirm'
+  if [[ $osUpdateFlag == 1 ]]; then
+    say 'Updating System'
+    sudo pacman -Syyu --noconfirm
+  fi
 }
 
 # -------------------------------------------------------------------------- }}}
