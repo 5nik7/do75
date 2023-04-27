@@ -11,11 +11,12 @@
 neovimBuildFlag=1
 osUpdateFlag=1
 pacmanPackagesFlag=1
+paruPackagesFlag=1
+yayPackagesFlag=1
 pipPackagesFlag=1
 rbenvFlag=1
 rustFlag=1
 symlinksFlag=1
-yayPackagesFlag=1
 tmuxPluginsFlag=1
 
 # -------------------------------------------------------------------------- }}}
