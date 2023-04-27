@@ -352,7 +352,7 @@ zshshell() {
     sudo chsh -s /bin/zsh $USER
 
   fi
-
+}
 # -------------------------------------------------------------------------- }}}
 # {{{ Echo something with a separator line.
 
