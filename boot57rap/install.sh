@@ -34,7 +34,7 @@ main() {
   addProgramsNeoVimInterfacesWith
 
   # Install editors and terminal multiplexers.
-  loadTmuxPlugins
+  cloneTmuxPlugins
 
   # Final personalization
 
