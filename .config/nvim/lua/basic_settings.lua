@@ -20,6 +20,7 @@ vim.o.linebreak = true
 vim.o.hidden = true
 vim.o.laststatus = 3
 vim.o.cmdheight = 0
+vim.o.swapfile = false
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menu,menuone,noselect'

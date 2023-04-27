@@ -9,7 +9,7 @@
 # {{{ Products to install.
 
 osUpdateFlag=1
-osUpdateKeysFlag=1
+osUpdateKeysFlag=0
 pacmanPackagesFlag=1
 paruPackagesFlag=1
 yayPackagesFlag=0
@@ -19,12 +19,13 @@ rustFlag=1
 tmuxPluginsFlag=1
 neovimBuildFlag=1
 symlinksFlag=1
+zshFlag=1
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Other variables used during product installation.
 
 # The root personal repositories are cloned to.
-cloneRoot=~/do75
+inRoot=~/downloads
 
 # The email assiciated with git commit messages.
 gitEmail="nickflip86@gmail.com"
@@ -34,7 +35,7 @@ gitUserName="5nik7"
 
 # Ruby version to install.  rbenv is the Ruby enviornment manager.
 # rubyVerion becomes the global Ruby version installed.
-rubyVersion='3.2.0'
+rubyVersion='3.2.2
 
 
 # -------------------------------------------------------------------------- }}}

@@ -38,9 +38,9 @@ main() {
   createSymLinks
   
   # Final personalization
-
-   # [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
-
+  if [[ $zshFlag == 1 ]]; then
+    sudo chsh -s /bin/zsh $USER
+  fi
  }
 
 # -------------------------------------------------------------------------- }}}
@@ -59,13 +59,6 @@ sourceFiles() {
 }
 
 # -------------------------------------------------------------------------- }}}
-# {{{ Update OS
-
-updateOS() {
-  [[ $osUpdateFlag == 1 ]] && sayAndDo 'sudo pacman -Syyu --noconfirm'
-}
-
-# -------------------------------------------------------------------------- }}}
 # {{{ Update OS Keys
 
 updateOSKeys() {
@@ -79,6 +72,47 @@ updateOSKeys() {
 }
 
 # -------------------------------------------------------------------------- }}}
+# {{{ Update OS
+
+updateOS() {
+  [[ $osUpdateFlag == 1 ]] && sayAndDo 'sudo pacman -Syyu --noconfirm'
+}
+
+# -------------------------------------------------------------------------- }}}
+# {{{ deleteSymLinks
+
+deleteSymLinks() {
+  if [[ $symlinksFlag == 1 ]]; then
+    echo "Deleting symbolic links."
+    # Symlinks at .config
+#    rm -rfv ~/.config/Thunar
+    rm -rfv ~/.config/btop
+    rm -rfv ~/.config/cava
+    rm -rfv ~/.config/dunst
+    rm -rfv ~/.config/hypr
+    rm -rfv ~/.config/neofetch
+    rm -rfv ~/.config/nvim
+    rm -rfv ~/.config/pipewire
+    rm -rfv ~/.config/ranger
+    rm -rfv ~/.config/rofi
+    rm -rfv ~/.config/starship
+    rm -rfv ~/.config/swaylock
+    rm -rfv ~/.config/tmux
+    rm -rfv ~/.config/viewnior
+    rm -rfv ~/.config/waybar
+    rm -rfv ~/.config/wezterm
+    rm -rfv ~/.config/wlogout
+    rm -rfv ~/.config/zsh
+    rm -fsv ~/.local/bin/wrappedhl
+    rm -fsv ~/.scripts
+    rm -fsv ~/.wallpapers
+    rm -rfv ~/.gitconfig
+    rm -fsv ~/.tmux.conf
+    rm -rfv ~/.zshenv 
+  fi
+}
+
+# -------------------------------------------------------------------------- }}}
 # {{{ Install pacman packages.
 
 installPacmanPackages() {
@@ -88,20 +122,46 @@ installPacmanPackages() {
   fi
 }
 
-# -------------------------------------------------------------------------- }}}
+## -------------------------------------------------------------------------- }}}
+
+# {{{ Install paru packages.
+
+mkinRoot() {
+    if [[ -d ${dst} ]]; then
+        paru -Syu --noconfirm ${paru_packages[@]}
+    else
+        say 'Building paru.'
+        git clone ${src} ${dst}
+        cd ${dst}
+        makepkg -si
+        cd -
+        say 'Installing paru packages.'
+        paru -Syu --noconfirm ${paru_packages[@]}
+    fi
+  fi
+}
+
+ -------------------------------------------------------------------------- }}}
 
 # {{{ Install paru packages.
 
 installParuPackages() {
   if [[ $paruPackagesFlag == 1 ]]; then
-    say 'Installing paru packages.'
-    
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si
-    cd ..
-    
-    paru -Syu --noconfirm ${paru_packages[@]}
+    src=https://aur.archlinux.org/paru.git 
+    dst=$inRoot/paru 
+
+    if [[ -d ${dst} ]]; then
+        say 'Installing paru packages.'
+        paru -Syu --noconfirm ${paru_packages[@]}
+    else
+        say 'Building paru.'
+        git clone ${src} ${dst}
+        cd ${dst}
+        makepkg -si
+        cd -
+        say 'Installing paru packages.'
+        paru -Syu --noconfirm ${paru_packages[@]}
+    fi
   fi
 }
 
@@ -110,16 +170,24 @@ installParuPackages() {
 
 installYayPackages() {
   if [[ $yayPackagesFlag == 1 ]]; then
-    say 'Installing yay packages.'
+    src=https://aur.archlinux.org/yay.git
+    dst=$inRoot/yay
 
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    cd ..
-
-    yay -Syu --noconfirm ${yay_packages[@]}
+    if [[ -d ${dst} ]]; then
+        say 'Installing yay packages.'
+        yay -Syu --noconfirm ${yay_packages[@]}
+    else
+        say 'Building yay.'
+        git clone ${src} ${dst}
+        cd ${dst}
+        makepkg -si
+        cd -
+        say 'Installing yay packages.'
+        yay -Syu --noconfirm ${yay_packages[@]}
+    fi
   fi
 }
+
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Install pip packages.
@@ -132,17 +200,16 @@ installPipPackages() {
 }
 
 
-
-
 # -------------------------------------------------------------------------- }}}
 # {{{ cloneTmuxPlugins
 
 cloneTmuxPlugins () {
   if [[ $tmuxPluginsFlag == 1 ]]; then
-    say 'Cloning TMUX plugins.'
     src=https://github.com/tmux-plugins/tpm.git
-    dst=~/.config/tmux/plugins/tpm
-    git clone  $src $dst
+    dst=~/.config/tmux/plugins
+    say 'Cloning TMUX plugins.'
+    git clone $src $dst
+
   fi
 }
 
@@ -161,7 +228,7 @@ buildNeovim() {
 
     say 'Building neovim.'
     src=https://github.com/neovim/neovim
-    dst=$cloneRoot/neovim
+    dst=$inRoot/neovim
 
     if [[ -d ${dst} ]]; then
       echo 'Update neovim sources.'
@@ -169,14 +236,13 @@ buildNeovim() {
       git pull
     else
       echo 'Clone neovim sources.'
-      git clone  $src $dst
+      git clone $src $dst
     fi
 
     echo 'Build neovim.'
     cd ${dst}
     sudo make CMANE_BUILD=RelWithDebInfo install
-
-    echo
+    cd $HOME
   fi
 }
 
@@ -187,10 +253,11 @@ addProgramsNeoVimInterfacesWith() {
   if [[ $neovimBuildFlag == 1 ]]; then
     say 'Add programs Neovim interfaces with.'
     gem install neovim
-    sudo npm install -g neovim
+    npm install --global neovim
     yarn global add neovim
     paru -S --noconfirm python-pip
     python -m pip install --user --upgrade pynvim
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
   fi
 }
 
@@ -260,39 +327,7 @@ installRust() {
   fi
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ deleteSymLinks
 
-deleteSymLinks() {
-  if [[ $symlinksFlag == 1 ]]; then
-    echo "Deleting symbolic links."
-    # Symlinks at .config
-#    rm -rfv ~/.config/Thunar
-    rm -rfv ~/.config/btop
-    rm -rfv ~/.config/cava
-    rm -rfv ~/.config/dunst
-    rm -rfv ~/.config/hypr
-    rm -rfv ~/.config/neofetch
-    rm -rfv ~/.config/nvim
-    rm -rfv ~/.config/pipewire
-    rm -rfv ~/.config/ranger
-    rm -rfv ~/.config/rofi
-    rm -rfv ~/.config/starship
-    rm -rfv ~/.config/swaylock
-    rm -rfv ~/.config/tmux
-    rm -rfv ~/.config/viewnior
-    rm -rfv ~/.config/waybar
-    rm -rfv ~/.config/wezterm
-    rm -rfv ~/.config/wlogout
-    rm -rfv ~/.config/zsh
-    rm -fsv ~/.local/bin/wrappedhl
-    rm -fsv ~/.scripts
-    rm -fsv ~/.wallpapers
-    rm -rfv ~/.gitconfig
-    rm -fsv ~/.tmux.conf
-    rm -rfv ~/.zshenv 
-  fi
-}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ createSymLinks
