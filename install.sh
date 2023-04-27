@@ -33,14 +33,13 @@ main() {
   # Install editors and terminal multiplexers.
   cloneTmuxPlugins
 
-# Setup symlinks.
+  # Setup symlinks.
   deleteSymLinks
   createSymLinks
   
   # Final personalization
-  if [[ $zshFlag == 1 ]]; then
-    sudo chsh -s /bin/zsh $USER
-  fi
+  zshshell
+
  }
 
 # -------------------------------------------------------------------------- }}}
@@ -345,6 +344,14 @@ createSymLinks() {
  fi
 }
 
+# -------------------------------------------------------------------------- }}}
+# {{{ Set shell to zsh
+
+zshshell() {
+  if [[ $zshFlag == 1 ]]; then
+    sudo chsh -s /bin/zsh $USER
+
+  fi
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Echo something with a separator line.
