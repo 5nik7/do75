@@ -122,26 +122,7 @@ installPacmanPackages() {
   fi
 }
 
-## -------------------------------------------------------------------------- }}}
-
-# {{{ Install paru packages.
-
-mkinRoot() {
-    if [[ -d ${dst} ]]; then
-        paru -Syu --noconfirm ${paru_packages[@]}
-    else
-        say 'Building paru.'
-        git clone ${src} ${dst}
-        cd ${dst}
-        makepkg -si
-        cd -
-        say 'Installing paru packages.'
-        paru -Syu --noconfirm ${paru_packages[@]}
-    fi
-  fi
-}
-
- -------------------------------------------------------------------------- }}}
+# -------------------------------------------------------------------------- }}}
 
 # {{{ Install paru packages.
 
