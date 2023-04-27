@@ -40,7 +40,7 @@ main() {
   # Final personalization
   zshshell
 
- }
+}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Source all configuration files
@@ -350,9 +350,9 @@ createSymLinks() {
 zshshell() {
   if [[ $zshFlag == 1 ]]; then
     sudo chsh -s /bin/zsh $USER
-
   fi
 }
+
 # -------------------------------------------------------------------------- }}}
 # {{{ Echo something with a separator line.
 

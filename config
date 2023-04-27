@@ -35,7 +35,7 @@ gitUserName="5nik7"
 
 # Ruby version to install.  rbenv is the Ruby enviornment manager.
 # rubyVerion becomes the global Ruby version installed.
-rubyVersion='3.2.2
+rubyVersion='3.2.2'
 
 
 # -------------------------------------------------------------------------- }}}
