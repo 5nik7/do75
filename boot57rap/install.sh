@@ -10,6 +10,7 @@ main() {
 
   # Install packages.
   installPacmanPackages
+  installParuPackages
   installYayPackages
   installPipPackages
 
@@ -56,6 +57,22 @@ installPacmanPackages() {
   fi
 }
 
+# -------------------------------------------------------------------------- }}}
+
+# {{{ Install paru packages.
+
+installParuPackages() {
+  if [[ $paruPackagesFlag == 1 ]]; then
+    say 'Installing paru packages.'
+    
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ..
+    
+    paru -Syu --noconfirm ${yay_packages[@]}
+  fi
+}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Install yay packages.
