@@ -35,7 +35,7 @@ main() {
 
   # Final personalization
 
-   [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
+   # [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
 
  }
 
@@ -87,7 +87,6 @@ installYayPackages() {
     cd ..
 
     yay -Syu --noconfirm ${yay_packages[@]}
-    libtool --finish /usr/lib/libfakeroot
   fi
 }
 
@@ -102,17 +101,7 @@ installPipPackages() {
 }
 
 
-# -------------------------------------------------------------------------- }}}
-# {{{ cloneTmuxPlugins
 
-cloneTmuxPlugins () {
-  if [[ $tmuxPluginsFlag == 1 ]]; then
-    say 'Cloning TMUX plugins.'
-    src=https://github.com/tmux-plugins/tpm.git
-    dst=~/.tmux/plugins/tpm
-    git clone  $src $dst
-  fi
-}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ deleteSymLinks
@@ -122,13 +111,29 @@ deleteSymLinks() {
     echo "Deleting symbolic links."
     # Symlinks at .config
 #    rm -rfv ~/.config/Thunar
+    rm -rfv ~/.config/btop
+    rm -rfv ~/.config/cava
+    rm -rfv ~/.config/dunst
+    rm -rfv ~/.config/hypr
+    rm -rfv ~/.config/neofetch
     rm -rfv ~/.config/nvim
+    rm -rfv ~/.config/pipewire
     rm -rfv ~/.config/ranger
-
-    # Symlinks at $HOME
+    rm -rfv ~/.config/rofi
+    rm -rfv ~/.config/starship
+    rm -rfv ~/.config/swaylock
+    rm -rfv ~/.config/tmux
+    rm -rfv ~/.config/viewnior
+    rm -rfv ~/.config/waybar
+    rm -rfv ~/.config/wezterm
+    rm -rfv ~/.config/wlogout
+    rm -rfv ~/.config/zsh
+    rm -fsv ~/.local/bin/wrappedhl
+    rm -fsv ~/.scripts
+    rm -fsv ~/.wallpapers
     rm -rfv ~/.gitconfig
-    rm -rfv ~/.tmux
-    rm -rfv ~/.tmux.conf
+    rm -fsv ~/.tmux.conf
+    rm -rfv ~/.zshenv 
   fi
 }
 
@@ -138,18 +143,46 @@ deleteSymLinks() {
 createSymLinks() {
   if [[ $symlinksFlag == 1 ]]; then
     say 'Creating symbolic links.'
-    mkdir -p ~/.config/ranger
     # Symlinks at .config
-    ln -fsv $DOTFILES/ranger                         ~/.config/ranger
-    ln -fsv $DOTFILES/nvim	                         ~/.config/nvim
+    ln -fsv ~/do75/.config/btop                         ~/.config/btop
+    ln -fsv ~/do75/.config/cava                         ~/.config/cava
+    ln -fsv ~/do75/.config/dunst                        ~/.config/dunst
+    ln -fsv ~/do75/.config/hypr                         ~/.config/hypr
+    ln -fsv ~/do75/.config/neofetch                     ~/.config/neofetch
+    ln -fsv ~/do75/.config/nvim	                        ~/.config/nvim
+    ln -fsv ~/do75/.config/pipewire                     ~/.config/pipewire
+    ln -fsv ~/do75/.config/ranger                       ~/.config/ranger
+    ln -fsv ~/do75/.config/rofi                         ~/.config/rofi
+    ln -fsv ~/do75/.config/starship                     ~/.config/starship
+    ln -fsv ~/do75/.config/swaylock                     ~/.config/swaylock
+    ln -fsv ~/do75/.config/tmux                         ~/.config/tmux
+    ln -fsv ~/do75/.config/viewnior                     ~/.config/viewnior
+    ln -fsv ~/do75/.config/waybar                       ~/.config/waybar
+    ln -fsv ~/do75/.config/wezterm                      ~/.config/wezterm
+    ln -fsv ~/do75/.config/wlogout                      ~/.config/wlogout
+    ln -fsv ~/do75/.config/zsh                          ~/.config/zsh
+    ln -fsv ~/do75/.local/bin/wrappedhl                 ~/.local/bin/wrappedhl
+    ln -fsv ~/do75/.scripts                             ~/.scripts
+    ln -fsv ~/do75/.wallpapers                          ~/.wallpapers
+    ln -fsv ~/do75/.gitconfig                           ~/.gitconfig
+    ln -fsv ~/do75/.tmux.conf                           ~/.tmux.conf
+    ln -fsv ~/do75/.zshenv                              ~/.zshenv
 
     # Symlinks at $HOME
-    ln -fsv $DOTFILES/.gitconfig                    ~/.gitconfig
-    ln -fsv $DOTFILES/.tmux                         ~/.tmux
-    ln -fsv $DOTFILES/.tmux/.tmux.conf              ~/.tmux.conf
  fi
 }
 
+# -------------------------------------------------------------------------- }}}
+# {{{ cloneTmuxPlugins
+
+cloneTmuxPlugins () {
+  if [[ $tmuxPluginsFlag == 1 ]]; then
+    say 'Cloning TMUX plugins.'
+    src=https://github.com/tmux-plugins/tpm.git
+    dst=~/.config/tmux/plugins/tpm
+    git clone  $src $dst
+  fi
+}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Build Neovim
@@ -194,8 +227,8 @@ addProgramsNeoVimInterfacesWith() {
     gem install neovim
     sudo npm install -g neovim
     yarn global add neovim
-    yay -S --noconfirm python-pip
-    python3 -m pip install --user --upgrade pynvim
+    paru -S --noconfirm python-pip
+    python -m pip install --user --upgrade pynvim
   fi
 }
 
@@ -223,7 +256,7 @@ installRuby() {
     sudo pacman -Syu --noconfirm ${ruby_build_packages[@]}
 
     say 'Acquire Ruby dependencies.'
-    yay -S --noconfirm \
+    paru -S --noconfirm \
       rbenv \
       ruby-build \
 

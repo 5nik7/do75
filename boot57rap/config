@@ -12,18 +12,18 @@ neovimBuildFlag=1
 osUpdateFlag=1
 pacmanPackagesFlag=1
 paruPackagesFlag=1
-yayPackagesFlag=1
+yayPackagesFlag=0
 pipPackagesFlag=1
 rbenvFlag=1
 rustFlag=1
-symlinksFlag=1
+symlinksFlag=0
 tmuxPluginsFlag=1
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Other variables used during product installation.
 
 # The root personal repositories are cloned to.
-cloneRoot=$DOTFILES
+cloneRoot=~/do75
 
 # The email assiciated with git commit messages.
 gitEmail="nickflip86@gmail.com"
