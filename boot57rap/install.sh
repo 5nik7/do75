@@ -5,6 +5,9 @@ main() {
   # Save current working directory.
   cwd=$(pwd)
 
+  # Source configuration files and clean when necessary.
+  sourceFiles
+
   # Update operating system and keys.
   updateOS
 
@@ -38,6 +41,21 @@ main() {
    # [[ -f $HOME/.zshrc ]] && source $HOME/.zshrc 
 
  }
+
+# -------------------------------------------------------------------------- }}}
+# {{{ Source all configuration files
+sourceFiles() {
+  missingFile=0
+
+  files=(config packages)
+  for f in ${files[@]}
+  do
+    source $f
+  done
+
+  [[ $missingFile == 1 ]] && say 'Missing file(s) program exiting.' && exit
+
+}
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Update OS
