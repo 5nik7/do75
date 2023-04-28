@@ -4,7 +4,7 @@
 # Setups
 format="$directory$git_branch$character"
 right_format = """$git_status$cmd_duration"""
-add_newline = false 
+add_newline = true
 
 # Other languages configurations:
 c.disabled = true
@@ -23,20 +23,20 @@ golang.disabled = true
 [conda]
 format = ' [$symbol$environment](dimmed green) '
 
-# Prompt symbols 
+# Prompt symbols
 [character]
 success_symbol = "[](#98BB6C)"
 error_symbol = "[](#FF5D62)"
 vicmd_symbol = "[](#FFA066)"
 
 [directory]
-format = "[]($style)(bg:#2A2A37 fg:#54546D)[$path](bg:#2A2A37 fg:#7E9CD8 bold)[ ]($style)"
+format = "[]($style)(bg:#2A2A37 fg:#54546D)[$path](bg:#2A2A37 fg:#7E9CD8 )[ ]($style)"
 style = "bg:none fg:#2A2A37"
 truncation_length = 10
 truncate_to_repo=false
 
 [git_branch]
-format = "[]($style)[[ ](bg:#2A2A37 fg:#938AA9 bold)$branch](bg:#2A2A37 fg:#957FB8)[ ]($style)"
+format = "[]($style)[[ ](bg:#2A2A37 fg:#938AA9 bold)$branch](bg:#2A2A37 fg:#957FB8)[ ]($style)"
 style = "bg:none fg:#2A2A37"
 
 [git_status]
@@ -57,7 +57,7 @@ deleted = "${count}"
 
 [cmd_duration]
 min_time = 1
-# duration & style 
+# duration & style
 format = "[]($style)[[神](bg:#2A2A37 fg:#54546D bold)$duration](bg:#2A2A37 fg:#54546D)[]($style)"
 disabled = false
 style = "bg:none fg:#2A2A37"
