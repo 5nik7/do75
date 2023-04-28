@@ -1,0 +1,20 @@
+#!/bin/bash
+
+osUpdateFlag=0
+osUpdateKeysFlag=0
+pacmanPackagesFlag=1
+paruPackagesFlag=1
+yayPackagesFlag=1
+pipPackagesFlag=1
+rbenvFlag=1
+rustFlag=1
+neovimBuildFlag=0
+symlinksFlag=0
+zshFlag=0
+
+# The root personal repositories are cloned to.
+inRoot=~/downloads"
+
+# Ruby version to install.  rbenv is the Ruby enviornment manager.
+# rubyVerion becomes the global Ruby version installed.
+rubyVersion='3.2.2'
