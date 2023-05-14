@@ -13,7 +13,7 @@ symlinksFlag=0
 zshFlag=0
 
 # The root personal repositories are cloned to.
-inRoot=~/downloads"
+inRoot=~/git"
 
 # Ruby version to install.  rbenv is the Ruby enviornment manager.
 # rubyVerion becomes the global Ruby version installed.
