@@ -6,25 +6,20 @@ pacman_packages=(
   "curl"
   "dunst"
   "git"
-  "go"
-  "meld"
   "ninja"
-  "reflector"
-  "openssh"
   "tmux"
   "tree-sitter"
   "unzip"
-  "which"
   "wget"
-  "xclip"
   "zsh"
   "fzf"
   "neofetch"
+  "ruby"
 )
 # -------------------------------------------------------------------------- }}}
-# {{{ paru packages
+# {{{ aur packages
 
-paru_packages=(
+yay_packages=(
   "bat"
   "exa"
   "fd"
@@ -41,37 +36,7 @@ paru_packages=(
   "tldr"
   "ttf-jetbrains-mono-nerd"
   "yarn"
-  "dunst"
   "ffmpegthumbnailer"
   "imagemagick"
-  "ripgrep" 
+  "ripgrep"
 )
-
-# -------------------------------------------------------------------------- }}}
-# {{{ ruby-build packages
-
-ruby_build_packages=(
-  "base-devel"
-  "libffi"
-  "libyaml"
-  "rust"
-)
-
-# -------------------------------------------------------------------------- }}}
-# {{{ pip packages
-
-pip_packages=(
-  "pynvim"
-)
-
-# -------------------------------------------------------------------------- }}}
-# {{{ yay packages
-
-yay_packages=(
-  "rofi"
-  "rofi-emoji"
-  "chromium"
-)
-
-
-# -------------------------------------------------------------------------- }}}
