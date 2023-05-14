@@ -15,6 +15,8 @@ pacman_packages=(
   "fzf"
   "neofetch"
   "ruby"
+  "htop"
+  "btop"
 )
 # -------------------------------------------------------------------------- }}}
 # {{{ aur packages
@@ -39,4 +41,5 @@ yay_packages=(
   "ffmpegthumbnailer"
   "imagemagick"
   "ripgrep"
+  "lazygit"
 )
