@@ -38,4 +38,6 @@ yay_packages=(
   "imagemagick"
   "ripgrep"
   "lazygit"
+  "chromium"
+  "kanagawa-gtk-theme-git"
 )

@@ -2,7 +2,6 @@
 ## PATH & ENV Var
 ##
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -14,6 +13,7 @@ export TERMINAL="wezterm"
 export BROWSER="chromium"
 export VISUAL="nvim"
 export EDITOR="nvim"
+export GTK_THEME="Kanagawa-Borderless"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
