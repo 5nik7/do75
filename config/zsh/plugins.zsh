@@ -44,7 +44,7 @@ zinit ice wait lucid from"gh-r" as"program" mv"bin/exa* -> exa"
 zinit light ogham/exa
 
 # BAT
-zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Nord'"
+zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='base16'"
 zinit light sharkdp/bat
 
 # vim:ft=zsh
