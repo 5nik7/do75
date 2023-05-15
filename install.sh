@@ -177,18 +177,18 @@ addProgramsNeoVimInterfacesWith() {
 createSymLinks() {
     say 'Creating symbolic links.'
     # Symlinks at .config
-    ln -fsv ~/git/do75/config/btop                         ~/.config/btop
-    ln -fsv ~/git/do75/config/nvim	                       ~/.config/nvim
-    ln -fsv ~/git/do75/config/ranger                       ~/.config/ranger
-    ln -fsv ~/git/do75/config/starship                     ~/.config/starship
-    ln -fsv ~/git/do75/config/tmux                         ~/.config/tmux
-    ln -fsv ~/git/do75/config/wezterm                      ~/.config/wezterm
-    ln -fsv ~/git/do75/config/zsh                          ~/.config/zsh
-    ln -fsv ~/git/do75/scripts                             ~/.scripts
-    ln -fsv ~/git/do75/wallpapers                          ~/.wallpapers
-    ln -fsv ~/git/do75/gitconfig                           ~/.gitconfig
-    ln -fsv ~/git/do75/tmux.conf                           ~/.tmux.conf
-    ln -fsv ~/git/do75/zshenv                              ~/.zshenv
+    ln -fsv $HOME/git/do75/config/btop                         $HOME/.config/btop
+    ln -fsv $HOME/git/do75/config/nvim	                       $HOME/.config/nvim
+    ln -fsv $HOME/git/do75/config/ranger                       $HOME/.config/ranger
+    ln -fsv $HOME/git/do75/config/starship                     $HOME/.config/starship
+    ln -fsv $HOME/git/do75/config/tmux                         $HOME/.config/tmux
+    ln -fsv $HOME/git/do75/config/wezterm                      $HOME/.config/wezterm
+    ln -fsv $HOME/git/do75/config/zsh                          $HOME/.config/zsh
+    ln -fsv $HOME/git/do75/scripts                             $HOME/.scripts
+    ln -fsv $HOME/git/do75/wallpapers                          $HOME/.wallpapers
+    ln -fsv $HOME/git/do75/gitconfig                           $HOME/.gitconfig
+    ln -fsv $HOME/git/do75/tmux.conf                           $HOME/.tmux.conf
+    ln -fsv $HOME/git/do75/zshenv                              $HOME/.zshenv
 
 }
 

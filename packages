@@ -1,5 +1,3 @@
-# {{{ pacman packages
-
 pacman_packages=(
   "base-devel"
   "cmake"
@@ -18,8 +16,6 @@ pacman_packages=(
   "htop"
   "btop"
 )
-# -------------------------------------------------------------------------- }}}
-# {{{ aur packages
 
 yay_packages=(
   "bat"
