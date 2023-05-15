@@ -15,6 +15,7 @@ pacman_packages=(
   "ruby"
   "htop"
   "btop"
+  "gtk-engine-murrine"
 )
 
 yay_packages=(
