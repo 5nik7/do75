@@ -25,6 +25,12 @@
 !_TAG_FIELD_DESCRIPTION	xpath	/xpath for the tag/;"	extras:pseudo
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/;"	extras:pseudo
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Iniconf	k,key	/keys/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Iniconf	s,section	/sections/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Sh	a,alias	/aliases/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Sh	f,function	/functions/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/label for here document/;"	extras:pseudo
+!_TAG_KIND_DESCRIPTION!Sh	s,script	/script files/;"	extras:pseudo
 !_TAG_KIND_DESCRIPTION!Zsh	a,alias	/aliases/;"	extras:pseudo
 !_TAG_KIND_DESCRIPTION!Zsh	f,function	/functions/;"	extras:pseudo
 !_TAG_KIND_DESCRIPTION!Zsh	h,heredoc	/label for here document/;"	extras:pseudo
@@ -33,6 +39,8 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/;"	extras:pseudo
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/;"	extras:pseudo
 !_TAG_OUTPUT_VERSION	0.0	/current.age/;"	extras:pseudo
+!_TAG_PARSER_VERSION!Iniconf	0.0	/current.age/;"	extras:pseudo
+!_TAG_PARSER_VERSION!Sh	0.0	/current.age/;"	extras:pseudo
 !_TAG_PARSER_VERSION!Zsh	0.0	/current.age/;"	extras:pseudo
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/;"	extras:pseudo
 !_TAG_PROC_CWD	/home/snikt/git/do75/	//;"	extras:pseudo
@@ -40,9 +48,30 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/;"	extras:pseudo
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/;"	extras:pseudo
 !_TAG_PROGRAM_VERSION	6.0.0	/3547021a/;"	extras:pseudo
+!_TAG_ROLE_DESCRIPTION!Sh!heredoc	endmarker	/end marker/;"	extras:pseudo
+!_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/;"	extras:pseudo
 !_TAG_ROLE_DESCRIPTION!Zsh!function	autoloaded	/function name passed to autoload built-in command/;"	extras:pseudo
 !_TAG_ROLE_DESCRIPTION!Zsh!heredoc	endmarker	/end marker/;"	extras:pseudo
 !_TAG_ROLE_DESCRIPTION!Zsh!script	autoloaded	/autoloaded/;"	extras:pseudo
 !_TAG_ROLE_DESCRIPTION!Zsh!script	loaded	/loaded/;"	extras:pseudo
 EOF	config/zsh/options.zsh	/^done <<-EOF$/;"	kind:heredoc	line:44	language:Zsh	roles:def	end:67
 EOF	config/zsh/options.zsh	/^done <<-EOF$/;"	kind:heredoc	line:72	language:Zsh	roles:def	end:77
+addProgramsNeoVimInterfacesWith	install.sh	/^addProgramsNeoVimInterfacesWith() {$/;"	kind:function	line:157	language:Sh	roles:def
+bg	tmux.conf	/^set -g message-style "bg=#44475a,fg=#cae682"$/;"	kind:key	line:30	language:Iniconf	roles:def
+buildNeovim	install.sh	/^buildNeovim() {$/;"	kind:function	line:126	language:Sh	roles:def
+createSymLinks	install.sh	/^createSymLinks() {$/;"	kind:function	line:187	language:Sh	roles:def
+fg	tmux.conf	/^set -g @prefix_highlight_empty_attr 'fg=default,bg=default' # default is 'fg=default,bg=default'$/;"	kind:key	line:145	language:Iniconf	roles:def
+installPacmanPackages	install.sh	/^installPacmanPackages() {$/;"	kind:function	line:72	language:Sh	roles:def
+installRust	install.sh	/^installRust() {$/;"	kind:function	line:117	language:Sh	roles:def
+installYayPackages	install.sh	/^installYayPackages() {$/;"	kind:function	line:88	language:Sh	roles:def
+installtpm	install.sh	/^installtpm() {$/;"	kind:function	line:108	language:Sh	roles:def
+main	install.sh	/^main() {$/;"	kind:function	line:4	language:Sh	roles:def
+mksrc	install.sh	/^mksrc() {$/;"	kind:function	line:80	language:Sh	roles:def
+say	install.sh	/^say() {$/;"	kind:function	line:214	language:Sh	roles:def
+sayAndDo	install.sh	/^sayAndDo() {$/;"	kind:function	line:223	language:Sh	roles:def
+sourceFiles	install.sh	/^sourceFiles() {$/;"	kind:function	line:32	language:Sh	roles:def
+style bg	tmux.conf	/^set-option -g status-style bg=default$/;"	kind:key	line:117	language:Iniconf	roles:def
+style fg	tmux.conf	/^set -g pane-active-border-style fg=#2A2A37,bg=default$/;"	kind:key	line:125	language:Iniconf	roles:def
+style fg	tmux.conf	/^set -g pane-border-style fg=#2A2A37$/;"	kind:key	line:124	language:Iniconf	roles:def
+style fg	tmux.conf	/^set-window-option -g window-status-current-style fg=#98BB6C,bg=default,bright # fg=orange$/;"	kind:key	line:106	language:Iniconf	roles:def
+zshshell	install.sh	/^zshshell() {$/;"	kind:function	line:207	language:Sh	roles:def

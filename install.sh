@@ -14,6 +14,7 @@ main() {
   # Make source directory.
   mksrc
   installYayPackages
+  installtpm
   installRust
   buildNeovim
   addProgramsNeoVimInterfacesWith
@@ -102,6 +103,15 @@ installYayPackages() {
 }
 
 # -------------------------------------------------------------------------- }}}
+# {{{ Install tpm
+
+installtpm() {
+# Install tpm
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo 'tpm installed.'
+}
+
+# -------------------------------------------------------------------------- }}}
 # {{{ Install Rust
 
 installRust() {
@@ -181,7 +191,6 @@ createSymLinks() {
     ln -fsv $HOME/git/do75/config/nvim	                       $HOME/.config/nvim
     ln -fsv $HOME/git/do75/config/ranger                       $HOME/.config/ranger
     ln -fsv $HOME/git/do75/config/starship                     $HOME/.config/starship
-    ln -fsv $HOME/git/do75/config/tmux                         $HOME/.config/tmux
     ln -fsv $HOME/git/do75/config/wezterm                      $HOME/.config/wezterm
     ln -fsv $HOME/git/do75/config/zsh                          $HOME/.config/zsh
     ln -fsv $HOME/git/do75/scripts                             $HOME/.scripts
