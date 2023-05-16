@@ -2,39 +2,39 @@
 ## Aesthetic Night Colorscheme
 ##
 # special
-background='#1E1E2E'
-foreground='#CDD6F4'
+background='#2A2A37'
+foreground='#dcd7ba'
 
 # black
-color0='#45475A'
-color8='#585B70'
+color0='#363646'
+color8='#54546D'
 
 # red
-color1='#F38BA8'
-color9='#F38BA8'
+color1='#FF5D62'
+color9='#FF5D62'
 
 # green
-color2='#A6E3A1'
-color10='#A6E3A1'
+color2='#98BB6C'
+color10='#98BB6C'
 
 # yellow
-color3='#F9E2AF'
-color11='#F9E2AF'
+color3='#e6c384'
+color11='#e6c384'
 
 # blue
-color4='#89B4FA'
-color12='#89B4FA'
+color4='#7E9CD8'
+color12='#7E9CD8'
 
 # magenta
-color5='#F5C2E7'
-color13='#F5C2E7'
+color5='#D27E99'
+color13='#D27E99'
 
 # cyan
-color6='#94E2D5'
-color14='#94E2D5'
+color6='#A3D4D5'
+color14='#A3D4D5'
 
 # white
-color7='#BAC2DE'
-color15='#A6ADC8'
+color7='#dcd7ba'
+color15='#c8c093'
 
 # vim='iletype'=zsh
