@@ -14,7 +14,7 @@ export BROWSER="chromium"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export GTK_THEME="Kanagawa-Borderless"
-export GDK_SCALE=2
+export GDK_SCALE=1
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
