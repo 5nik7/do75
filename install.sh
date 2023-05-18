@@ -1,8 +1,6 @@
 #!/bin/bash
 
 main() {
-  # Save current working directory.
-  cwd=$(pwd)
 
   sourceFiles
   updateOS
