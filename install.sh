@@ -122,7 +122,7 @@ addProgramsNeoVimInterfacesWith() {
 #   if [[ $symlinksFlag == 1 ]]; then
 #     echo "Deleting symbolic links."
 #     # Symlinks at .config
-# #    rm -rfv ~/.config/Thunar
+#     rm -rfv ~/.config/Thunar
 #     rm -rfv ~/.config/nvim
 #     rm -rfv ~/.config/ranger
 #     rm -rfv ~/.config/starship
