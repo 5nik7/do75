@@ -18,6 +18,7 @@ pacman_packages=(
   "gtk-engine-murrine"
   "chromium"
   "firefox"
+  "thunar"
 )
 
 yay_packages=(
