@@ -1,34 +1,23 @@
 #!/bin/bash
-# {{{ main
 
 main() {
   # Save current working directory.
   cwd=$(pwd)
 
-  # Source configuration files and clean when necessary.
   sourceFiles
-
-  # Install packages.
+  updateOS
   installPacmanPackages
-
-  # Make source directory.
   mksrc
   installYayPackages
   installtpm
   installRust
   buildNeovim
   addProgramsNeoVimInterfacesWith
-
-  # Setup symlinks.
   createSymLinks
-
-  # Final personalization
   zshshell
 
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Source all configuration files
 sourceFiles() {
   missingFile=0
 
@@ -42,9 +31,6 @@ sourceFiles() {
 
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Update OS Keys
-
 # updateOSKeys() {
 #   if [[ $osUpdateKeysFlag == 1 ]]; then
 #     say 'Update keys'
@@ -55,35 +41,21 @@ sourceFiles() {
 #   fi
 # }
 
-
-# -------------------------------------------------------------------------- }}}
-# {{{ Update OS
-
-# updateOS() {
-#   if [[ $osUpdateFlag == 1 ]]; then
-#     say 'Updating System'
-#     sudo pacman -Syyu --noconfirm
-#   fi
-# }
-
-# -------------------------------------------------------------------------- }}}
-# {{{ Install pacman packages.
+updateOS() {
+  say 'Updating System'
+  sudo pacman -Syyu --noconfirm
+}
 
 installPacmanPackages() {
   say 'Installing pacman packages.'
   sudo pacman -Syyu --noconfirm ${pacman_packages[@]}
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Source all configuration files
 
 mksrc() {
     say 'Making source directory.'
     mkdir -v $HOME/source
 }
-
-# -------------------------------------------------------------------------- }}}
-# {{{ Install yay packages.
 
 installYayPackages() {
     src=https://aur.archlinux.org/yay-bin.git
@@ -102,26 +74,16 @@ installYayPackages() {
     fi
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Install tpm
-
 installtpm() {
 # Install tpm
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   echo 'tpm installed.'
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Install Rust
-
 installRust() {
-# Install Rust
   curl --proto '=https' --tlsv1.2 -sFf https://sh.rustup.rs | sh
   echo 'Rust installed.'
 }
-
-# -------------------------------------------------------------------------- }}}
-# {{{ Build Neovim
 
 buildNeovim() {
     # say 'Acquire neovim dependencies.'
@@ -151,18 +113,12 @@ buildNeovim() {
     cd $HOME
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Add programs Neovim interfaces with.
-
 addProgramsNeoVimInterfacesWith() {
     say 'Add programs Neovim interfaces with.'
     gem install neovim
     npm install neovim
     python -m pip install --user --upgrade pynvim
 }
-
-# -------------------------------------------------------------------------- }}}
-# {{{ deleteSymLinks
 
 # deleteSymLinks() {
 #   if [[ $symlinksFlag == 1 ]]; then
@@ -181,9 +137,6 @@ addProgramsNeoVimInterfacesWith() {
 #   fi
 # }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ createSymLinks
-
 createSymLinks() {
     say 'Creating symbolic links.'
     # Symlinks at .config
@@ -201,15 +154,9 @@ createSymLinks() {
 
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Set shell to zsh
-
 zshshell() {
   sudo chsh -s /bin/zsh $USER
 }
-
-# -------------------------------------------------------------------------- }}}
-# {{{ Echo something with a separator line.
 
 say() {
   echo
@@ -217,18 +164,10 @@ say() {
   echo $@
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ Echo a command and then execute it.
-
 sayAndDo() {
   say $@
   $@
   echo
 }
 
-# -------------------------------------------------------------------------- }}}
-# {{{ The stage is set ... start the show!!!
-
 main $@
-
-# -------------------------------------------------------------------------- }}}
