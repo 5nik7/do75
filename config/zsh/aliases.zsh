@@ -236,4 +236,6 @@ alias v='nvim'
 alias vim='nvim'
 
 alias d='ranger'
+
+alias update='sudo pacman -Syyuu --noconfirm'
 # vim:ft=zsh

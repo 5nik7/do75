@@ -1,6 +1,5 @@
 #!/bin/bash
 
-say 'Building neovim.'
 src=https://github.com/neovim/neovim
 dst=$HOME/source/neovim
 
