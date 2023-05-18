@@ -43,12 +43,12 @@ sourceFiles() {
 
 updateOS() {
   say 'Updating System'
-  sudo pacman -Syyu --noconfirm
+  sudo pacman -Syyuu --noconfirm
 }
 
 installPacmanPackages() {
   say 'Installing pacman packages.'
-  sudo pacman -Syyu --noconfirm ${pacman_packages[@]}
+  sudo pacman -Syyuu --noconfirm ${pacman_packages[@]}
 }
 
 
