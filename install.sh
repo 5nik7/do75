@@ -86,8 +86,8 @@ mksrc() {
 # {{{ Install yay packages.
 
 installYayPackages() {
-    src=https://aur.archlinux.org/yay.git
-    dst=$HOME/source/yay
+    src=https://aur.archlinux.org/yay-bin.git
+    dst=$HOME/source/yay-bin
     if [[ -d ${dst} ]]; then
         say 'Installing yay packages.'
         yay -Syu --noconfirm ${yay_packages[@]}
@@ -96,7 +96,7 @@ installYayPackages() {
         git clone ${src} ${dst}
         cd ${dst}
         makepkg -si
-        cd -
+        cd $HOME
         say 'Installing yay packages.'
         yay -Syu --noconfirm ${yay_packages[@]}
     fi
@@ -157,7 +157,7 @@ buildNeovim() {
 addProgramsNeoVimInterfacesWith() {
     say 'Add programs Neovim interfaces with.'
     gem install neovim
-    npm install --global neovim
+    npm install neovim
     python -m pip install --user --upgrade pynvim
 }
 
