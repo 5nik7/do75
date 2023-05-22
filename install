@@ -56,20 +56,8 @@ mksrc() {
 }
 
 installYayPackages() {
-    src=https://aur.archlinux.org/yay-bin.git
-    dst=$HOME/source/yay-bin
-    if [[ -d ${dst} ]]; then
-        say 'Installing yay packages.'
-        yay -Syu --noconfirm ${yay_packages[@]}
-    else
-        say 'Building yay.'
-        git clone ${src} ${dst}
-        cd ${dst}
-        makepkg -si
-        cd $HOME
-        say 'Installing yay packages.'
-        yay -Syu --noconfirm ${yay_packages[@]}
-    fi
+    say 'Installing yay packages.'
+    yay -Syu --noconfirm ${yay_packages[@]}
 }
 
 installtpm() {
@@ -81,34 +69,6 @@ installtpm() {
 installRust() {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   echo 'Rust installed.'
-}
-
-buildNeovim() {
-    # say 'Acquire neovim dependencies.'
-    # sudo pacman -Syu --noconfirm \
-    #   base-devel \
-    #   cmake \
-    #   ninja \
-    #   tree-sitter \
-    #   unzip
-
-    say 'Building neovim.'
-    src=https://github.com/neovim/neovim
-    dst=$HOME/source/neovim
-
-    if [[ -d ${dst} ]]; then
-      echo 'Update neovim sources.'
-      cd ${dst}
-      git pull
-    else
-      echo 'Clone neovim sources.'
-      git clone $src $dst
-    fi
-
-    echo 'Build neovim.'
-    cd ${dst}
-    sudo make CMANE_BUILD=RelWithDebInfo install
-    cd $HOME
 }
 
 addProgramsNeoVimInterfacesWith() {

@@ -3,10 +3,12 @@
 ## ░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 ##
 ## rxyhn's Z-Shell configuration
-## https://github.com/rxyhn
+
+
+export ZDOTDIR="$HOME/.config/zsh"
 
 while read file
-do 
+do
   source "$ZDOTDIR/$file.zsh"
 done <<-EOF
 theme

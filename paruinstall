@@ -1,7 +1,0 @@
-#!/bin/bash
-
-mkdir -p $HOME/src
-cd $HOME/src
-git clone https://aur.archlinux.org/paru.git
-cd $HOME/src/paru
-makepkg -si
