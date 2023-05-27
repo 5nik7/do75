@@ -1,7 +1,6 @@
 #!/bin/bash
 
 main() {
-
   sourceFiles
   updateOS
   installPacmanPackages
@@ -11,9 +10,9 @@ main() {
   installRust
   buildNeovim
   addProgramsNeoVimInterfacesWith
+  deleteSymLinks
   createSymLinks
   zshshell
-
 }
 
 sourceFiles() {
@@ -25,79 +24,46 @@ sourceFiles() {
     source $f
   done
 
-  [[ $missingFile == 1 ]] && say 'Missing file(s) program exiting.' && exit
+  [[ $missingFile == 1 ]] && echo 'Missing file(s) program exiting.' && exit
 
 }
 
-# updateOSKeys() {
-#   if [[ $osUpdateKeysFlag == 1 ]]; then
-#     say 'Update keys'
-#     sudo pacman-key --init
-#     sudo pacman-key --populate
-#     sudo pacman-key --refresh-keys
-#     sudo pacman -Sy archlinux-keyring --noconfirm
-#   fi
-# }
-
 updateOS() {
-  say 'Updating System'
+  echo 'Updating System' &&
   sudo pacman -Syyuu --noconfirm
 }
 
 installPacmanPackages() {
-  say 'Installing pacman packages.'
+  echo 'Installing pacman packages.' &&
   sudo pacman -Syyuu --noconfirm ${pacman_packages[@]}
 }
 
-
-mksrc() {
-    say 'Making source directory.'
-    mkdir -v $HOME/source
-}
-
 installYayPackages() {
-    say 'Installing yay packages.'
-    yay -Syu --noconfirm ${yay_packages[@]}
-}
-
-installtpm() {
-# Install tpm
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  echo 'tpm installed.'
+   echo 'Installing yay packages.' &&
+   yay -Syu --noconfirm ${yay_packages[@]}
 }
 
 installRust() {
+  echo 'Installing rustup.' &&
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  echo 'Rust installed.'
 }
 
-addProgramsNeoVimInterfacesWith() {
-    say 'Add programs Neovim interfaces with.'
-    gem install neovim
-    npm install neovim
-    python -m pip install --user --upgrade pynvim
-}
-
-# deleteSymLinks() {
-#   if [[ $symlinksFlag == 1 ]]; then
-#     echo "Deleting symbolic links."
-#     # Symlinks at .config
-#     rm -rfv ~/.config/Thunar
-#     rm -rfv ~/.config/nvim
-#     rm -rfv ~/.config/ranger
-#     rm -rfv ~/.config/starship
-#     rm -rfv ~/.config/tmux
-#     rm -rfv ~/.config/zsh
-#     rm -fsv ~/.scripts
-#     rm -rfv ~/.gitconfig
-#     rm -fsv ~/.tmux.conf
-#     rm -rfv ~/.zshenv
-#   fi
-# }
+deleteSymLinks() {
+     echo "Deleting symlinks."
+     rm -rfv ~/.config/Thunar
+     rm -rfv ~/.config/nvim
+     rm -rfv ~/.config/ranger
+     rm -rfv ~/.config/starship
+     rm -rfv ~/.config/tmux
+     rm -rfv ~/.config/zsh
+     rm -fsv ~/.scripts
+     rm -rfv ~/.gitconfig
+     rm -fsv ~/.tmux.conf
+     rm -rfv ~/.zshenv
+ }
 
 createSymLinks() {
-    say 'Creating symbolic links.'
-    # Symlinks at .config
+    echo "Creating symlinks."
     ln -fsv $HOME/git/do75/config/btop                         $HOME/.config/btop
     ln -fsv $HOME/git/do75/config/nvim	                       $HOME/.config/nvim
     ln -fsv $HOME/git/do75/config/ranger                       $HOME/.config/ranger
@@ -109,23 +75,10 @@ createSymLinks() {
     ln -fsv $HOME/git/do75/gitconfig                           $HOME/.gitconfig
     ln -fsv $HOME/git/do75/tmux.conf                           $HOME/.tmux.conf
     ln -fsv $HOME/git/do75/zshenv                              $HOME/.zshenv
-
 }
 
 zshshell() {
   sudo chsh -s /bin/zsh $USER
-}
-
-say() {
-  echo
-  echo '**********************'
-  echo $@
-}
-
-sayAndDo() {
-  say $@
-  $@
-  echo
 }
 
 main $@
