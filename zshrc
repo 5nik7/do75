@@ -9,10 +9,10 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}')
 
 export SUDO_PROMPT="passwd: "
-export BROWSER="firefox"
+export BROWSER=firefox
 export TERMINAL=wezterm
-export VISUAL="nvim"
-export EDITOR="nvim"
+export VISUAL=nvim
+export EDITOR=nvim
 
 export EXA_ICON_SPACING=2
 
@@ -170,10 +170,17 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
-source ~/.config/zsh/theme
-source ~/.bash_aliases
-source ~/.config/zsh/utility
+if [[ -f "$DOTFILES/zsh/aliases" ]]; then
+  source "$DOTFILES/zsh/aliases"
+fi
 
+if [[ -f "$DOTFILES/zsh/theme" ]]; then
+  source "$DOTFILES/zsh/theme"
+fi
+
+if [[ -f "$DOTFILES/zsh/utility" ]]; then
+  source "$DOTFILES/zsh/utility"
+fi
 
 # Load starship
 zinit ice as'command' from'gh-r' \
