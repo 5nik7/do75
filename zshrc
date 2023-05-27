@@ -59,8 +59,8 @@ source "${ZINIT_HOME}/zinit.git/zinit.zsh"
 zinit ice blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
 
-autoload compinit
-compinit
+autoload -U compinit
+compinit -i
 
 zinit light-mode for \
     hlissner/zsh-autopair \
@@ -98,8 +98,6 @@ zmodload zsh/complist
 
 autoload _vi_search_fix
 autoload -Uz colors
-autoload -U compinit
-colors
 
 zle -N _vi_search_fix
 zle -N _sudo_command_line

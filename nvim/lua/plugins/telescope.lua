@@ -78,8 +78,8 @@ return {
     require("telescope").setup(opts)
     require("telescope").load_extension "fzf"
     local hl = vim.api.nvim_set_hl
-    local mainColor = "#11111b"
-    hl(0, "TelescopeBorder", { fg = mainColor, bg = mainColor })
+    local mainColor = "#1e1e2e"
+    hl(0, "TelescopeBorder", { fg = "#313244", bg = mainColor })
     hl(0, "TelescopeNormal", { bg = mainColor })
 
     hl(0, "TelescopePromptPrefix", { fg = "#cdd6f4", bg = mainColor })

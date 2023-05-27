@@ -30,7 +30,7 @@
     "max-length": 50
   },
   "clock": {
-    "format": " {:%H:%M}",
+    "format": " {:%H:%M}",
     "timezones": ["US/Seattle", "PST"]
   }
 }
