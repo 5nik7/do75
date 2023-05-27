@@ -11,7 +11,7 @@ add_newline = true
 [username]
 style_user = 'sky'
 style_root = 'maroon'
-format = '[snikt]($style)'
+format = '[$username]($style)'
 disabled = false
 show_always = true
 

@@ -2,25 +2,25 @@ local wezterm = require 'wezterm';
 
 return {
 
-  font = wezterm.font("JetBrainsMono Nerd Font", {weight="Medium", stretch="Normal", style="Normal"}),
+  font = wezterm.font("JetBrainsMono Nerd Font Propo", {weight="Medium", stretch="Normal", style="Normal"}),
 
   font_rules = {
     {
       italic = true,
-      font = wezterm.font("JetBrainsMono Nerd Font", {weight="Medium", stretch="Normal", style="Italic"}),
+      font = wezterm.font("JetBrainsMono Nerd Font Propo", {weight="Medium", stretch="Normal", style="Italic"}),
     },
     {
       intensity = "Bold",
-      font = wezterm.font("JetBrainsMono Nerd Font", {weight="Bold", stretch="Normal", style="Normal"}),
+      font = wezterm.font("JetBrainsMono Nerd Font Propo", {weight="Bold", stretch="Normal", style="Normal"}),
     },
     {
       intensity = "Bold",
       italic = true,
-      font = wezterm.font("JetBrainsMono Nerd Font", {weight="Bold", stretch="Normal", style="Italic"})
+      font = wezterm.font("JetBrainsMono Nerd Font Propo", {weight="Bold", stretch="Normal", style="Italic"})
     },
   },
 
-  font_size = 9.5,
+  font_size = 10.0,
 
   color_scheme = "Catppuccin",
 
@@ -36,7 +36,7 @@ return {
     bottom = 0,
   },
 
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.98,
   window_decorations = "RESIZE",
   enable_tab_bar = false,
   scrollback_lines = 5000,
