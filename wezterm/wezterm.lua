@@ -20,7 +20,7 @@ return {
     },
   },
 
-  font_size = 10.0,
+  font_size = 9.5,
 
   color_scheme = "Catppuccin",
 
@@ -36,7 +36,7 @@ return {
     bottom = 0,
   },
 
-  window_background_opacity = 0.90,
+  window_background_opacity = 0.95,
   window_decorations = "RESIZE",
   enable_tab_bar = false,
   scrollback_lines = 5000,
