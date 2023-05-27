@@ -15,6 +15,8 @@ if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ] ; then
     PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 fi
 
+export PATH="/mnt/c/zoo:$PATH"
+
 # remove absolute path leaks in release binary (rust)
 export RUSTFLAGS="--remap-path-prefix $HOME=~"
 
