@@ -11,9 +11,9 @@ return {
     insert_mappings = true,
     persist_size = true,
     close_on_exit = true,
-    shell = "/usr/bin/fish",
+    shell = "/usr/bin/zsh",
     float_opts = {
-      border = "single",
+      border = { "┏", "━", "┓", "┃", "┛","━", "┗", "┃" },
     },
   },
   config = function(_, opts)

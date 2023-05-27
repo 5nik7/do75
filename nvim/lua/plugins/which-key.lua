@@ -117,17 +117,11 @@ M.config = function()
 				},
 			},
 		},
-		mappings = {
-			["t"] = {
-				name = "Terminal",
-				["t"] = { "<cmd>ToggleTerm<cr>", "Open Terminal" },
-				["g"] = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-			},
-		},
+		mappings = {},
 	}
 	wk.setup(config.setup)
-	wk.register(config.mappings, config.opts)
-	wk.register(config.vmappings, config.vopts)
+	wk.register(config.keymaps, config.opts)
+	wk.register(config.vkeymaps, config.vopts)
 end
 
 return M

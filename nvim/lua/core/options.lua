@@ -32,6 +32,7 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.preserveindent = true
 opt.shiftround = true
+opt.autoindent = true
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
@@ -74,9 +75,14 @@ vim.cmd [[
   aunmenu PopUp.How-to\ disable\ mouse
   aunmenu PopUp.-1-
 ]]
-vim.g.loaded_python_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_node_provider = 0
 
-vim.api.nvim_command("set rtp-=/usr/share/vim/vimfiles")
+vim.g.node_host_prog = "~/node_modules/.bin/neovim-node-host"
+vim.g.ruby_host_prog = "~/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host"
+vim.g.python_host_prog = "~/.local/lib/python3.11/site-packages/pynvim"
+
+vim.g.loaded_perl_provider = 0
+
+-- Paths
+HOME_PATH = vim.fn.expand("$HOME")
+CONFIG_PATH = vim.fn.stdpath("config")
+LAZY_PATH = vim.fn.stdpath("data") .. "/lazy"

@@ -10,7 +10,7 @@ return {
     -- local code_actions = require("null-ls").builtins.code_actions
 
     return {
-      debug = false,
+      debug = true,
       sources = {
         formatting.prettierd.with {
           filetypes = {
