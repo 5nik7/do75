@@ -2,8 +2,6 @@
 ## ░▄▀░░▀▀█░█▀█░█▀▄░█░░
 ## ░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 
-## PATH & ENV Var
-
 export LIBGL_ALWAYS_INDIRECT=1 #GWSL
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0 #GWSL
 export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}') #GWSL
@@ -18,8 +16,6 @@ export TERMINAL="wezterm"
 export BROWSER="chromium"
 export VISUAL="nvim"
 export EDITOR="nvim"
-#export GTK_THEME="Kanagawa-Borderless"
-#export GDK_SCALE=1
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
