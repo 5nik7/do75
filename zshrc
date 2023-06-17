@@ -49,7 +49,7 @@ ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zinit}"
 if [[ ! -f ${ZINIT_HOME}/zinit.git/zinit.zsh ]]; then
     print -P "%F{14}▓▒░ Installing Flexible and fast ZSH plugin manager %F{13}(zinit)%f"
     command mkdir -p "${ZINIT_HOME}" && command chmod g-rwX "${ZINIT_HOME}"
-    command git clone http es://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}/zinit.git" && \
+    command git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}/zinit.git" && \
         print -P "%F{10}▓▒░ Installation successful.%f%b" || \
         print -P "%F{9}▓▒░ The clone has failed.%f%b"
 fi
@@ -168,8 +168,8 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
-if [[ -f "$DOTFILES/zsh/aliases" ]]; then
-  source "$DOTFILES/zsh/aliases"
+if [[ -f "$DOTFILES/bash_aliases" ]]; then
+  source "$DOTFILES/bash_aliases"
 fi
 
 if [[ -f "$DOTFILES/zsh/theme" ]]; then
@@ -182,7 +182,7 @@ fi
 
 # Load starship
 zinit ice as'command' from'gh-r' \
-    atload'export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml; eval $(starship init zsh)' \
+    atload'export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml; eval $(starship init zsh)' \
     atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
     atpull'%atclone' src'init.zsh'
 zinit light starship/starship

@@ -26,12 +26,13 @@ alias installed="grep -i installed /var/log/pacman.log"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-  alias ll="exa -HF --icons --git --long --no-user --no-time --group-directories-first"
-  alias l="exa -HF --icons --git --all --long --no-time --no-user --group-directories-first"
+  alias ll="exa -HF --icons --git --long --group-directories-first"
+  alias l="exa -HF --icons --git --all --long --group-directories-first"
 else
   alias l="ls -lah ${colorflag}"
   alias ll="ls -lFh ${colorflag}"
 fi
+
 alias la="ls -AF ${colorflag}"
 alias lld="ls -l | grep ^d"
 alias cp='cp -rv'
@@ -39,24 +40,19 @@ alias mv='mv -v'
 alias srm='sudo rm -rfv'
 alias lnf='ln -sfv'
 alias mkdir='mkdir -v'
-
-alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
-alias bat="bat --color=always --paging=never"
+alias lpath='echo $PATH | tr ":" "\n"'
+alias bat='bat --color=always --paging=never'
 alias grep='grep --color=auto'
 alias mv='mv -v'
 alias cp='cp -vr'
 alias rm='rm -vrf'
-
 alias t='tmux'
 alias tls='tmux ls'
 alias tks='tmux kill-session'
 alias v=$EDITOR
 alias vim=$EDITOR
-
 alias d='ranger'
-
 alias update='sudo pacman -Syyuu --noconfirm'
-
 alias dots='cd $DOTFILES'
 
 # vim:ft=zsh
