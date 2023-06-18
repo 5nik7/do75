@@ -18,11 +18,9 @@ fi
 export PATH="/mnt/c/zoo:$PATH"
 
 
-if [ -z "$XDG_CONFIG_HOME" ]; then
 	export XDG_CACHE_HOME=$HOME/.cache
 	export XDG_CONFIG_HOME=$HOME/.config
 	export XDG_DATA_HOME=$HOME/.local/share
 	export XDG_STATE_HOME=$HOME/.local/state
-fi
 
 # vim:ft=zsh:nowrap
