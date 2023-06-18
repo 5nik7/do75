@@ -8,11 +8,8 @@ fi
 if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
 fi
-if [ -d "$HOME/.config/node_modules/.bin" ] ; then
-    PATH="$HOME/.config/node_modules/.bin:$PATH"
-fi
-if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ] ; then
-    PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+if [ -d "$NVM_BIN" ] ; then
+    PATH="$NVM_BIN:$PATH"
 fi
 
 export PATH="/mnt/c/zoo:$PATH"
