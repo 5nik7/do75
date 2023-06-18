@@ -1,13 +1,15 @@
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxqt-policykit-agent
+exec dunst
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+# exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id mako
-exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Blue-Dark'
-exec_always gsettings set org.gnome.desktop.interface icon-theme 'Catppuccin-Mocha'
-exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Blue-Dark'
+exec gsettings set org.gnome.desktop.interface icon-theme 'Catppuccin-Mocha'
+# exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec ~/.config/sway/scripts/xdpk
 
 xwayland enable
 font pango:JetBrainsMono Nerd Font 8
@@ -125,7 +127,7 @@ set $powermenu nwgbar -f
 
     # Start your launcher
     # bindsym $mod+d exec $menu
-    bindsym $mod+d exec $menu -show run
+    bindsym $mod+d exec $menu
 
     # Launcher
     bindsym $mod+Shift+d exec $launcher
