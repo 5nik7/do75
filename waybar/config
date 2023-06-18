@@ -4,9 +4,9 @@
   "height": 25,
   "spacing": 3,
   "margin": "5 0 -10 0",
-  "modules-left": ["clock", "sway/workspaces", "sway/window"],
+  "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": [],
-  "modules-right": [],
+  "modules-right": ["clock"],
   "sway/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -23,6 +23,7 @@
       "8": "8",
       "9": "9",
       "10": "10"
+    }
   },
   "sway/window": {
     "icon": false,
@@ -30,8 +31,6 @@
     "max-length": 50
   },
   "clock": {
-    "format": " {:%H:%M}",
-    "timezones": ["US/Seattle", "PST"]
+    "format": "\ue641 {:%I:%M}"
   }
-}
 }

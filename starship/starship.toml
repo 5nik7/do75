@@ -6,7 +6,7 @@
 palette = "catppuccin_mocha"
 
 format="$directory$git_branch$git_status$character"
-add_newline = true
+add_newline = false
 
 [directory]
 format = "[$path](bold blue) "
@@ -24,9 +24,9 @@ renamed = ""
 deleted = ""
 stashed = ""
 
-#  󰥭
+#  󰥭     󰅂
 [character]
-success_symbol = "[](rosewater)"
+success_symbol = "[󰅂](green)"
 error_symbol = "[❌](red)"
 vicmd_symbol = "[；](overlay0)"
 
