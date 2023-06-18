@@ -1,15 +1,15 @@
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxqt-policykit-agent
+exec dunst
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+# exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id mako
-exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Blue-Dark'
-exec_always gsettings set org.gnome.desktop.interface icon-theme 'Catppuccin-Mocha'
-exec_always --no-startup-id workstyle &> /tmp/workstyle.log
-
-
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Blue-Dark'
+exec gsettings set org.gnome.desktop.interface icon-theme 'Catppuccin-Mocha'
+# exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec ~/.config/sway/scripts/xdpk
 
 xwayland enable
 font pango:JetBrainsMono Nerd Font 8
@@ -19,8 +19,8 @@ gaps inner 8
 gaps outer 8
 
 output * {
-  bg ~/.config/wallpapers/5.jpg fill
-  mode 2560x1440@170Hz
+  bg ~/.config/wallpapers/2.png fill
+  mode 2560x1410@170Hz
   pos 0 0
 }
 
@@ -127,7 +127,7 @@ set $powermenu nwgbar -f
 
     # Start your launcher
     # bindsym $mod+d exec $menu
-    bindsym $mod+d exec $menu -show run
+    bindsym $mod+d exec $menu
 
     # Launcher
     bindsym $mod+Shift+d exec $launcher
@@ -311,5 +311,13 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
     bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
     bindsym Alt+print exec /usr/share/sway/scripts/grimshot --notify copy area
 
+
+# Window Rules {{{
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] border none, floating enable, nofocus
+for_window [window_role="pop-up"] floating enable
+for_window [app_id="mpv"] border none, floating enable, resize set width 531 height 300, move position 1345 125, sticky enable
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, move position 877 450, sticky enable, border none
+# }}}
 
 include /etc/sway/config.d/*

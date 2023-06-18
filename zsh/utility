@@ -106,7 +106,7 @@ function toppy() {
 }
 
 function cd() {
-    builtin cd "$@" && clear && exa -laHF --icons --no-time --no-user --group-directories-first
+    builtin cd "$@" && clear && exa -HF --icons --git --all --long --group-directories-first
 }
 
 function git-svn(){
@@ -116,7 +116,7 @@ function git-svn(){
           svn export "$repo/trunk/$2"
   else
           echo "Use: git-svn <repository> <subdirectory>"
-  fi  
+  fi
 }
 
-# vim:ft=sh
+# vim:ft=zsh

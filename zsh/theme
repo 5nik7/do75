@@ -37,4 +37,4 @@ color14='#A3D4D5'
 color7='#dcd7ba'
 color15='#c8c093'
 
-# vim='iletype'=zsh
+# vim:ft=zsh
