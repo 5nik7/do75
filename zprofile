@@ -17,9 +17,6 @@ fi
 
 export PATH="/mnt/c/zoo:$PATH"
 
-# remove absolute path leaks in release binary (rust)
-export RUSTFLAGS="--remap-path-prefix $HOME=~"
-
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
 	export XDG_CACHE_HOME=$HOME/.cache

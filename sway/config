@@ -9,8 +9,6 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Moch
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'Catppuccin-Mocha'
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
-
-
 xwayland enable
 font pango:JetBrainsMono Nerd Font 8
 default_border pixel 1
@@ -19,8 +17,8 @@ gaps inner 8
 gaps outer 8
 
 output * {
-  bg ~/.config/wallpapers/5.jpg fill
-  mode 2560x1440@170Hz
+  bg ~/.config/wallpapers/2.png fill
+  mode 2560x1410@170Hz
   pos 0 0
 }
 
@@ -311,5 +309,13 @@ bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 p
     bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
     bindsym Alt+print exec /usr/share/sway/scripts/grimshot --notify copy area
 
+
+# Window Rules {{{
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] border none, floating enable, nofocus
+for_window [window_role="pop-up"] floating enable
+for_window [app_id="mpv"] border none, floating enable, resize set width 531 height 300, move position 1345 125, sticky enable
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, move position 877 450, sticky enable, border none
+# }}}
 
 include /etc/sway/config.d/*

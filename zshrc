@@ -9,8 +9,6 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}')
 
 export SUDO_PROMPT="passwd: "
-export BROWSER=firefox
-export TERMINAL=wezterm
 export VISUAL=nvim
 export EDITOR=nvim
 
