@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DOTFILES="$HOME/do75"
+
+main() {
+  sourceFiles
+  installAptPackages
+  installRust
+}
+
+sourceFiles() {
+  missingFile=0
+
+  files=(packages)
+  for f in ${files[@]}
+  do
+    source $f
+  done
+
+  [[ $missingFile == 1 ]] && echo 'Missing file(s) program exiting.' && exit
+
+}
+
+installAptPackages() {
+  echo 'Installing apt packages.' &&
+  sudo apt -y install ${apt_packages[@]}
+}
+
+installRust() {
+  echo 'Installing rustup.' &&
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
+main "$@"
+

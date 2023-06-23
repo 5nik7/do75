@@ -44,3 +44,13 @@ yay_packages=(
   "lazygit"
   "kanagawa-gtk-theme-git"
 )
+
+apt_packages=(
+  "git"
+  "neofetch"
+  "ninja-build"
+  "gettext" 
+  "cmake"
+  "unzip"
+  "curl"
+)
