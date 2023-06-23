@@ -2,5 +2,7 @@ lastupdatecheck: 0
 recentrepos:
 - /home/snikt/do75
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- nvim zsh
+- state
 hidecommandlog: false
