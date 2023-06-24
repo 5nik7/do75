@@ -167,8 +167,8 @@ createSymLinks() {
 
 setshellzsh() {
 	echo 'Setting defualt shell to ZSH.' &&
-		sudo chsh -s $(which zsh) "$USER"
-	source ~/.zshrc
+		sudo chsh -s $(which zsh) "$USER" &&
+		exec zsh
 }
 
 BuildNeovim() {
