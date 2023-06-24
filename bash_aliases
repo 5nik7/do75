@@ -1,5 +1,7 @@
 alias c="clear"
 alias q="exit"
+alias :q="exit"
+alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias trim_all="sudo fstrim -va"
 alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
