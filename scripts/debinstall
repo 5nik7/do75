@@ -63,7 +63,7 @@ installstarship() {
 }
 
 installnvm() {
-  if command -v "nvm" &>/dev/null; then
+  if [[ -d ~/.nvm ]]; then
     echo 'NVM already installed.'
   else
     echo 'Installing Node Version Manager.' &&
