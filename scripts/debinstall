@@ -12,11 +12,11 @@ main() {
 	installRust
 	installstarship
 	installnvm
-	installlazygit
 	deleteSymLinks
 	createSymLinks
 	setshellzsh
 	BuildNeovim
+	installlazygit
 }
 
 sourceFiles() {
@@ -39,12 +39,13 @@ wslconf() {
 
 upup() {
 	echo 'Updating and upgrading.' &&
-		sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
+		sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y
 }
 
 mkbin() {
-	echo 'Creating bin.' &&
-		mkdir -p ~/.local/bin
+	echo 'Creating bin and config dir.' &&
+		mkdir -p ~/.local/bin &&
+		mkdir -p ~/.config/
 }
 
 installaptpkgs() {
@@ -56,13 +57,13 @@ installaptpkgs() {
 
 installflatpkgs() {
 	echo 'Installing flatpaks.' &&
-		sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &&
+		sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y &&
 		sudo flatpak install flathub com.google.Chrome -y &&
 		sudo flatpak install flathub org.wezfurlong.wezterm -y
 }
 
 installRust() {
-	if command -v "rustup" &>/dev/null; then
+p	if [[ -d ~/.rustup ]]; then
 		echo 'Rustup already installed.'
 	else
 		echo 'Installing rustup.' &&
@@ -76,31 +77,6 @@ installstarship() {
 	else
 		echo 'Installing starship.' &&
 			curl -sS https://starship.rs/install.sh | sh
-	fi
-}
-
-installnvm() {
-	if [[ -d ~/.nvm ]]; then
-		echo 'NVM already installed.'
-	else
-		echo 'Installing Node Version Manager.' &&
-			curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-		source ~/.bashrc
-		nvm install node
-		nvm install --latest-npm
-	fi
-}
-
-installlazygit() {
-	if command -v "lazygit" &>/dev/null; then
-		echo 'Lazygit already installed.'
-	else
-		echo 'Installing Lazygit.'
-		cd $HOME &&
-			LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') &&
-			curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" &&
-			tar xf lazygit.tar.gz lazygit &&
-			sudo install lazygit /usr/local/bin
 	fi
 }
 
@@ -192,6 +168,18 @@ BuildNeovim() {
 		echo 'Building neovim.'
 		sudo make CMANE_BUILD=RelWithDebInfo install
 		cd $HOME || exit
+	fi
+}
+
+installnvm() {
+	if [[ -d ~/.nvm ]]; then
+		echo 'NVM already installed.'
+	else
+		echo 'Installing Node Version Manager.' &&
+			curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+		source ~/.bashrc
+		nvm install node
+		nvm install --latest-npm
 	fi
 }
 
