@@ -4,8 +4,10 @@ DOTFILES="$HOME/do75"
 
 main() {
   sourceFiles
+  mkbin
   installAptPackages
   installRust
+  installstarship
 }
 
 sourceFiles() {
@@ -21,14 +23,26 @@ sourceFiles() {
 
 }
 
+mkbin() {
+  echo 'Creating bin.' &&
+  mkdir -p ~/.local/bin
+}
+
 installAptPackages() {
   echo 'Installing apt packages.' &&
-  sudo apt -y install ${apt_packages[@]}
+  sudo apt -y install ${apt_packages[@]} &&
+  ln -s /usr/bin/batcat ~/.local/bin/bat &&
+  ln -s $(which fdfind) ~/.local/bin/fd
 }
 
 installRust() {
   echo 'Installing rustup.' &&
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
+installstarship() {
+  echo 'Installing starship.' &&
+  curl -sS https://starship.rs/install.sh | sh
 }
 
 main "$@"
