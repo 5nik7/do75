@@ -49,5 +49,5 @@ require("lazy").setup({
 })
 
 require("notify").setup({
-  background_colour = "#1e1e2e",
+  background_colour = "#181825",
 })
