@@ -35,6 +35,9 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -Colors @{
+    "InlinePrediction" = [ConsoleColor]::DarkGray;
+}
 
 # PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
@@ -47,7 +50,8 @@ function ln($file1, $file2) {
     if (Test-Path $file1 = true) {
         Remove-Item -Recurse -Force $file1
         New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
-    } else {
+    }
+    else {
         New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
     }
 }
@@ -99,7 +103,7 @@ Function Search-Alias {
     param (
         [string]$alias
     )
-    if ($alias){
+    if ($alias) {
         Get-Alias | Where-Object DisplayName -Match $alias
     }
     else {
@@ -121,7 +125,7 @@ function ln($file1, $file2) {
     }
 }
 function lnk($file, $path1, $path2) {
-     New-Item -ItemType SymbolicLink -Path "$path1\$file" -Target "$path2\$file"
+    New-Item -ItemType SymbolicLink -Path "$path1\$file" -Target "$path2\$file"
 }
 
 function rlp {

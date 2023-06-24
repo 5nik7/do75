@@ -74,4 +74,12 @@ apt_packages=(
   "libffi-dev"
   "libgdbm-dev"
   "flatpak"
+  "apt-transport-https"
+  "ca-certificates"
+  "gnupg-agent"
+  "software-properties-common"
+  "tig"
+  "tree"
+  "zip"
+  "unzip"
 )
