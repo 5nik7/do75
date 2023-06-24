@@ -53,4 +53,6 @@ alias d='ranger'
 alias update='sudo pacman -Syyuu --noconfirm'
 alias dots='cd $DOTFILES'
 
+alias lg="lazygit"
+
 # vim:ft=zsh
