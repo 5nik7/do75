@@ -166,7 +166,7 @@ if [[ -f "$DOTFILES/zsh/utility" ]]; then
   source "$DOTFILES/zsh/utility"
 fi
 
-Load starship
+# Load starship
 zinit ice as'command' from'gh-r' \
     atload'export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml; eval $(starship init zsh)' \
     atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
