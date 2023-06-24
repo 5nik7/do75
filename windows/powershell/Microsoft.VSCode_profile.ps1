@@ -35,6 +35,9 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -Colors @{
+    "InlinePrediction" = [ConsoleColor]::DarkGray;
+}
 
 # PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
@@ -43,33 +46,66 @@ Set-Alias -Name alias -Value Search-Alias
 
 Set-Alias -Name c -Value Clear-Host
 
+Set-Alias -Name lg -Value lazygit
+
+function ln($file1, $file2) {
+    if (Test-Path $file1 = true) {
+        Remove-Item -Recurse -Force $file1
+        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
+    }
+    else {
+        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
+    }
+}
+
+function dots {
+    Set-Location "x:\hub\repos\do75\"
+    Clear-Host
+    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
+}
+function hub {
+    Set-Location "x:\hub\"
+    Clear-Host
+    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
+}
+function repos {
+    Set-Location "x:\hub\repos\"
+    Clear-Host
+    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
+}
+function q {
+    Exit
+}
 function ps {
     Get-Process
 }
-
 function kill($psid) {
     Stop-Process -Name "$psid" -Force
 }
 
-function ll { exa -alH --git --color=always --icons --group-directories-first }
+function ll { exa -xHighmnSlFuU --all --git --octal-permissions --group-directories-first --icons }
 
-function ls { exa -alH --git --color=always --icons --group-directories-first }
+function ls { exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions }
 
-function l { exa -alH --git --color=always --icons --group-directories-first }
+function l { exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions }
 
 function .. {
     Set-Location ..
+    Clear-Host
+    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 
 function ... {
     Set-Location ..\..
+    Clear-Host
+    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 
 Function Search-Alias {
     param (
         [string]$alias
     )
-    if ($alias){
+    if ($alias) {
         Get-Alias | Where-Object DisplayName -Match $alias
     }
     else {
@@ -81,14 +117,18 @@ function path {
     $env:Path -split ';'
 }
 
-function ln($filepath, $targetpath) {
-     New-Item -ItemType SymbolicLink -Path "$filepath" -Target "$targetpath"
+function ln($file1, $file2) {
+    if (Test-Path $file1 = true) {
+        Remove-Item -Recurse -Force $file1
+        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
+    }
+    else {
+        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
+    }
 }
-
 function lnk($file, $path1, $path2) {
-     New-Item -ItemType SymbolicLink -Path "$path1\$file" -Target "$path2\$file"
+    New-Item -ItemType SymbolicLink -Path "$path1\$file" -Target "$path2\$file"
 }
-
 
 function rlp {
     & $profile
@@ -144,3 +184,5 @@ Invoke-Expression (&starship init powershell)
 $ENV:STARSHIP_CACHE = "$HOME\AppData\Local\Temp"
 
 Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+
+$WarningPreference = "SilentlyContinue"

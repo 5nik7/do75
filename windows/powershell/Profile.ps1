@@ -46,6 +46,8 @@ Set-Alias -Name alias -Value Search-Alias
 
 Set-Alias -Name c -Value Clear-Host
 
+Set-Alias -Name lg -Value lazygit
+
 function ln($file1, $file2) {
     if (Test-Path $file1 = true) {
         Remove-Item -Recurse -Force $file1
@@ -57,7 +59,7 @@ function ln($file1, $file2) {
 }
 
 function dots {
-    Set-Location "x:\hub\repos\dots\"
+    Set-Location "x:\hub\repos\do75\"
     Clear-Host
     exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
