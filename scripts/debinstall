@@ -4,6 +4,7 @@ DOTFILES="$HOME/do75"
 
 main() {
 	sourceFiles
+	wslconf
 	upup
 	mkbin
 	installaptpkgs
@@ -28,6 +29,12 @@ sourceFiles() {
 
 	[[ $missingFile == 1 ]] && echo 'Missing file(s) program exiting.' && exit
 
+}
+
+wslconf() {
+	echo 'Configuring WSL.'
+	sudo rm -vf /etc/wsl.conf &&
+		sudo cp -v $DOTFILES/wsl.conf /etc/wsl.conf
 }
 
 upup() {
