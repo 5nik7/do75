@@ -167,11 +167,11 @@ if [[ -f "$DOTFILES/zsh/utility" ]]; then
 fi
 
 # Load starship
-zinit ice as'command' from'gh-r' \
-    atload'export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml; eval $(starship init zsh)' \
-    atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
-    atpull'%atclone' src'init.zsh'
-zinit light starship/starship
+# zinit ice as'command' from'gh-r' \
+#     atload'export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml; eval $(starship init zsh)' \
+#     atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
+#     atpull'%atclone' src'init.zsh'
+# zinit light starship/starship
 
 
 # zsh-autosuggestions mapping
