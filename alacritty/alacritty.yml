@@ -13,12 +13,12 @@ import:
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 20
+    y: 20
 
   decorations: none
 
-  opacity: 0.90
+  opacity: 0.98
   dynamic_title: true
 draw_bold_text_with_bright_colors: true
 
@@ -29,7 +29,7 @@ selection:
 
 cursor:
   style:
-    shape: Block
+    shape: Beam
     blinking: On
 
   blink_interval: 550
