@@ -1,18 +1,25 @@
 #!/bin/bash
 
+main() {
+  BuildNeovim
+}
+
 src=https://github.com/neovim/neovim
 dst=$HOME/source/neovim
 
-if [[ -d ${dst} ]]; then
-  echo 'Update neovim sources.'
-  cd ${dst}
+BuildNeovim() {
+  if [[ -d ${dst} ]]; then
+    echo 'Updating neovim source.'
+    cd ${dst}
     git pull
-else
-  echo 'Clone neovim sources.'
-  git clone $src $dst
-fi
+  else
+    mkdir $HOME/source
+    echo 'Cloning neovim source.'
+    git clone $src $dst && cd $dst
+    echo 'Building neovim.'
+    sudo make CMANE_BUILD=RelWithDebInfo install
+    cd $HOME
+  fi
+}
 
-echo 'Build neovim.'
-cd ${dst}
-sudo make CMANE_BUILD=RelWithDebInfo install
-cd $HOME
+main "$@"

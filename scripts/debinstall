@@ -4,11 +4,15 @@ DOTFILES="$HOME/do75"
 
 main() {
   sourceFiles
+  upup
   mkbin
   installAptPackages
   installRust
   installstarship
   installnvm
+  deleteSymLinks
+  createSymLinks
+  setshellzsh
 }
 
 sourceFiles() {
@@ -21,6 +25,11 @@ sourceFiles() {
 
   [[ $missingFile == 1 ]] && echo 'Missing file(s) program exiting.' && exit
 
+}
+
+upup() {
+  echo 'Updating and upgrading.' &&
+    sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
 }
 
 mkbin() {
@@ -36,18 +45,106 @@ installAptPackages() {
 }
 
 installRust() {
-  echo 'Installing rustup.' &&
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  if command -v "rustup" &>/dev/null; then
+    echo 'Rustup already installed.'
+  else
+    echo 'Installing rustup.' &&
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  fi
 }
 
 installstarship() {
-  echo 'Installing starship.' &&
-    curl -sS https://starship.rs/install.sh | sh
+  if command -v "starship" &>/dev/null; then
+    echo 'Starship already installed.'
+  else
+    echo 'Installing starship.' &&
+      curl -sS https://starship.rs/install.sh | sh
+  fi
 }
 
 installnvm() {
-  echo 'Installing Node Version Manager.' &&
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  if command -v "nvm" &>/dev/null; then
+    echo 'NVM already installed.'
+  else
+    echo 'Installing Node Version Manager.' &&
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    source ~/.bashrc
+    nvm install node
+    nvm install --latest-npm
+  fi
+}
+
+deleteSymLinks() {
+  echo "Deleting symlinks."
+  rm -rfv "$HOME/.config/alacritty"
+  rm -rfv "$HOME/.config/bat"
+  rm -rfv "$HOME/.config/btop"
+  rm -rfv "$HOME/.config/foot"
+  rm -rfv "$HOME/.config/gtk-2.0"
+  rm -rfv "$HOME/.config/gtk-3.0"
+  rm -rfv "$HOME/.config/htop"
+  rm -rfv "$HOME/.config/kitty"
+  rm -rfv "$HOME/.config/lazygit"
+  rm -rfv "$HOME/.config/nvim"
+  rm -rfv "$HOME/.config/qt5ct"
+  rm -rfv "$HOME/.config/ranger"
+  rm -rfv "$HOME/.config/starship"
+  rm -rfv "$HOME/.config/sway"
+  rm -rfv "$HOME/.config/swayr"
+  rm -rfv "$HOME/.config/Thunar"
+  rm -rfv "$HOME/.config/wallpapers"
+  rm -rfv "$HOME/.config/waybar"
+  rm -rfv "$HOME/.config/wezterm"
+  rm -rfv "$HOME/.config/zsh"
+  rm -rfv "$HOME/.config/picom.conf"
+  rm -rfv "$HOME/.config/user-dirs.dirs"
+  rm -rfv "$HOME/.bash_aliases"
+  rm -rfv "$HOME/.bashrc"
+  rm -rfv "$HOME/.gitconfig"
+  rm -rfv "$HOME/.nanorc"
+  rm -rfv "$HOME/.xinitrc"
+  rm -rfv "$HOME/.xresources"
+  rm -rfv "$HOME/.zprofile"
+  rm -rfv "$HOME/.zshrc"
+}
+
+createSymLinks() {
+  echo "Creating symlinks."
+  ln -fsv "$DOTFILES/alacritty" "$HOME/.config/alacritty"
+  ln -fsv "$DOTFILES/bat" "$HOME/.config/bat"
+  ln -fsv "$DOTFILES/btop" "$HOME/.config/btop"
+  ln -fsv "$DOTFILES/foot" "$HOME/.config/foot"
+  ln -fsv "$DOTFILES/gtk-2.0" "$HOME/.config/gtk-2.0"
+  ln -fsv "$DOTFILES/gtk-3.0" "$HOME/.config/gtk-3.0"
+  ln -fsv "$DOTFILES/htop" "$HOME/.config/htop"
+  ln -fsv "$DOTFILES/kitty" "$HOME/.config/kitty"
+  ln -fsv "$DOTFILES/lazygit" "$HOME/.config/lazygit"
+  ln -fsv "$DOTFILES/nvim" "$HOME/.config/nvim"
+  ln -fsv "$DOTFILES/qt5ct" "$HOME/.config/qt5ct"
+  ln -fsv "$DOTFILES/ranger" "$HOME/.config/ranger"
+  ln -fsv "$DOTFILES/starship" "$HOME/.config/starship"
+  ln -fsv "$DOTFILES/sway" "$HOME/.config/sway"
+  ln -fsv "$DOTFILES/swayr" "$HOME/.config/swayr"
+  ln -fsv "$DOTFILES/Thunar" "$HOME/.config/Thunar"
+  ln -fsv "$DOTFILES/wallpapers" "$HOME/.config/wallpapers"
+  ln -fsv "$DOTFILES/waybar" "$HOME/.config/waybar"
+  ln -fsv "$DOTFILES/wezterm" "$HOME/.config/wezterm"
+  ln -fsv "$DOTFILES/zsh" "$HOME/.config/zsh"
+  ln -fsv "$DOTFILES/picom.conf" "$HOME/.config/picom.conf"
+  ln -fsv "$DOTFILES/user-dirs.dirs" "$HOME/.config/user-dirs.dirs"
+  ln -fsv "$DOTFILES/bash_aliases" "$HOME/.bash_aliases"
+  ln -fsv "$DOTFILES/bashrc" "$HOME/.bashrc"
+  ln -fsv "$DOTFILES/gitconfig" "$HOME/.gitconfig"
+  ln -fsv "$DOTFILES/nanorc" "$HOME/.nanorc"
+  ln -fsv "$DOTFILES/xinitrc" "$HOME/.xinitrc"
+  ln -fsv "$DOTFILES/xresources" "$HOME/.xresources"
+  ln -fsv "$DOTFILES/zprofile" "$HOME/.zprofile"
+  ln -fsv "$DOTFILES/zshrc" "$HOME/.zshrc"
+}
+
+setshellzsh() {
+  echo 'Setting defualt shell to ZSH.' &&
+    sudo chsh -s $(which zsh) "$USER"
 }
 
 main "$@"
