@@ -106,7 +106,7 @@ function toppy() {
 }
 
 function cd() {
-    builtin cd "$@" && clear && exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
+    builtin cd "$@" && clear && exa -F --all --long --no-filesize --no-user --no-time --group-directories-first --icons --no-permissions
 }
 
 function git-svn(){

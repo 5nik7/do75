@@ -1,7 +1,6 @@
 alias c="clear"
 alias q="exit"
 alias :q="exit"
-alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias trim_all="sudo fstrim -va"
 alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
@@ -25,8 +24,8 @@ alias installed="grep -i installed /var/log/pacman.log"
 
 # use exa if available
 if [[ -x "$(command -v exa)" ]]; then
-  alias ll="exa -xHighmnSlFuU --all --git --octal-permissions --group-directories-first --icons"
-  alias l="exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions"
+  alias ll="exa -xHighmnSlFuU --all --octal-permissions --group-directories-first --icons"
+  alias l="exa -F --all --long --no-filesize --no-user --no-time --group-directories-first --icons --no-permissions"
 else
   alias l="ls -lah ${colorflag}"
   alias ll="ls -lFh ${colorflag}"
@@ -38,8 +37,8 @@ alias cp='cp -rv'
 alias mv='mv -v'
 alias srm='sudo rm -rfv'
 alias lnf='ln -sfv'
-alias mkdir='mkdir -v'
-alias lpath='echo $PATH | tr ":" "\n"'
+alias mkdir='mkdir -pv'
+alias path='echo $PATH | tr ":" "\n"'
 alias bat='bat --color=always --paging=never'
 alias grep='grep --color=auto'
 alias mv='mv -v'
