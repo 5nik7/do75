@@ -8,15 +8,15 @@ main() {
   installAptPackages
   installRust
   installstarship
+  installnvm
 }
 
 sourceFiles() {
   missingFile=0
 
   files=(packages)
-  for f in ${files[@]}
-  do
-    source $f
+  for f in ${files[@]}; do
+    source "$f"
   done
 
   [[ $missingFile == 1 ]] && echo 'Missing file(s) program exiting.' && exit
@@ -25,25 +25,29 @@ sourceFiles() {
 
 mkbin() {
   echo 'Creating bin.' &&
-  mkdir -p ~/.local/bin
+    mkdir -p ~/.local/bin
 }
 
 installAptPackages() {
   echo 'Installing apt packages.' &&
-  sudo apt -y install ${apt_packages[@]} &&
-  ln -s /usr/bin/batcat ~/.local/bin/bat &&
-  ln -s $(which fdfind) ~/.local/bin/fd
+    sudo apt -y install ${apt_packages[@]} &&
+    ln -s /usr/bin/batcat ~/.local/bin/bat &&
+    ln -s $(which fdfind) ~/.local/bin/fd
 }
 
 installRust() {
   echo 'Installing rustup.' &&
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 installstarship() {
   echo 'Installing starship.' &&
-  curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | sh
+}
+
+installnvm() {
+  echo 'Installing Node Version Manager.' &&
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 }
 
 main "$@"
-
