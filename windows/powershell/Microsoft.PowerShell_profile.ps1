@@ -1,4 +1,4 @@
-# File for Current User, Current Host - $PROFILE.CurrentUserCurrentHost
+# File for Current User, All Hosts - $PROFILE.CurrentUserAllHosts
 
 if ($host.Name -eq 'ConsoleHost') {
     Import-Module PSReadLine
@@ -35,6 +35,9 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -Colors @{
+    "InlinePrediction" = [ConsoleColor]::DarkGray;
+}
 
 # PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
@@ -43,18 +46,12 @@ Set-Alias -Name alias -Value Search-Alias
 
 Set-Alias -Name c -Value Clear-Host
 
-function ln($file1, $file2) {
-    if (Test-Path $file1 = true) {
-        Remove-Item -Recurse -Force $file1
-        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
-    }
-    else {
-        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
-    }
+function lg {
+    lazygit
 }
 
 function dots {
-    Set-Location "x:\hub\repos\dots\"
+    Set-Location "x:\hub\repos\do75\"
     Clear-Host
     exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
@@ -113,7 +110,7 @@ function path {
 }
 
 function ln($file1, $file2) {
-    if (Test-Path $file1 = true) {
+    if (Test-Path $file1) {
         Remove-Item -Recurse -Force $file1
         New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
     }

@@ -47,7 +47,6 @@ Set-Alias -Name alias -Value Search-Alias
 Set-Alias -Name c -Value Clear-Host
 
 function lg {
-    Set-Location "x:\hub\repos\"
     lazygit
 }
 
