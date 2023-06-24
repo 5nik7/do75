@@ -23,7 +23,7 @@ function ln($file1, $file2) {
     }
 }
 
-ln "$env:LOCALAPPDATA\nvim" "X:\hub\repos\do75\nvim"
+# ln "$env:LOCALAPPDATA\nvim" "X:\hub\repos\do75\nvim"
 
 # ln "C:\Users\nickf\.config\starship.toml" "X:\hub\repos\do75\starship\starship.toml"
 

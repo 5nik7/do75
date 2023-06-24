@@ -46,16 +46,9 @@ Set-Alias -Name alias -Value Search-Alias
 
 Set-Alias -Name c -Value Clear-Host
 
-Set-Alias -Name lg -Value lazygit
-
-function ln($file1, $file2) {
-    if (Test-Path $file1 = true) {
-        Remove-Item -Recurse -Force $file1
-        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
-    }
-    else {
-        New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
-    }
+function lg {
+    Set-Location "x:\hub\repos\"
+    lazygit
 }
 
 function dots {
@@ -118,7 +111,7 @@ function path {
 }
 
 function ln($file1, $file2) {
-    if (Test-Path $file1 = true) {
+    if (Test-Path $file1) {
         Remove-Item -Recurse -Force $file1
         New-Item -ItemType SymbolicLink -Path $file1 -Target $file2
     }
