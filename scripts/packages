@@ -47,6 +47,7 @@ yay_packages=(
 
 apt_packages=(
   "git"
+  "gh"
   "neofetch"
   "build-essential"
   "ninja-build"

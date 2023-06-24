@@ -57,13 +57,13 @@ installaptpkgs() {
 
 installflatpkgs() {
 	echo 'Installing flatpaks.' &&
-		sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo -y &&
+		sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &&
 		sudo flatpak install flathub com.google.Chrome -y &&
 		sudo flatpak install flathub org.wezfurlong.wezterm -y
 }
 
 installRust() {
-p	if [[ -d ~/.rustup ]]; then
+	if [[ -d ~/.rustup ]]; then
 		echo 'Rustup already installed.'
 	else
 		echo 'Installing rustup.' &&
