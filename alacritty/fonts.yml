@@ -1,8 +1,8 @@
 #  Font configuration
 font:
   normal:
-    family: JetBrainsMono Nerd Font Propo
-    # family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
+    # family: Hack Nerd Font Propo
     style: Medium
 
   bold:

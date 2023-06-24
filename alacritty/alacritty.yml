@@ -13,8 +13,8 @@ import:
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 20
+    y: 20
 
   decorations: none
 
@@ -29,7 +29,7 @@ selection:
 
 cursor:
   style:
-    shape: Block
+    shape: Beam
     blinking: On
 
   blink_interval: 550
