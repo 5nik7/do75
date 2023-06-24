@@ -25,7 +25,8 @@ export FZF_DEFAULT_OPTS="
 --border horizontal
 --height 40"
 
-## Plugins
+# Bat Congihuration
+export BAT_CONFIG_PATH="$DOTFILES/bat/bat.conf"
 
 # Configure and load plugins using Zinit's
 ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zinit}"

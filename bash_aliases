@@ -1,7 +1,6 @@
 alias c="clear"
 alias q="exit"
 alias :q="exit"
-alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
 alias trim_all="sudo fstrim -va"
 alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
@@ -38,9 +37,8 @@ alias cp='cp -rv'
 alias mv='mv -v'
 alias srm='sudo rm -rfv'
 alias lnf='ln -sfv'
-alias mkdir='mkdir -v'
-alias lpath='echo $PATH | tr ":" "\n"'
-alias bat='bat --color=always --paging=never'
+alias mkdir='mkdir -pv'
+alias path='echo $PATH | tr ":" "\n"'
 alias grep='grep --color=auto'
 alias mv='mv -v'
 alias cp='cp -vr'
