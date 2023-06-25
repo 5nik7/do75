@@ -20,7 +20,7 @@ gaps outer 8
 
 output * {
   bg ~/.config/wallpapers/5.jpg fill
-  mode 2560x1410@170Hz
+  mode 2560x1410@170Hz scale 1
   pos 0 0
 }
 

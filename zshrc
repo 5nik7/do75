@@ -70,7 +70,7 @@ zinit ice wait lucid from"gh-r" as"program" mv"bin/exa* -> exa"
 zinit light ogham/exa
 
 # BAT
-zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='base16'"
+zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Catppuccin-mocha'"
 zinit light sharkdp/bat
 
 ##
@@ -110,6 +110,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 ZSH_HIGHLIGHT_MAXLENGTH=512
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$color8,bold"
+
+source $DOTFILES/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 while read -r opt
 do
