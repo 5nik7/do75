@@ -1,45 +1,80 @@
 local wezterm = require("wezterm")
-
+local mykeys = {
+	{
+		key = "t",
+		mods = "SHIFT|ALT",
+		action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
+	},
+	{
+		key = "w",
+		mods = "SHIFT|ALT",
+		action = wezterm.action({ CloseCurrentTab = { confirm = true } }),
+	},
+	{ key = "=", mods = "CTRL",       action = "IncreaseFontSize" },
+	{ key = "-", mods = "CTRL",       action = "DecreaseFontSize" },
+	{ key = "0", mods = "CTRL",       action = "ResetFontSize" },
+	{ key = "C", mods = "CTRL|SHIFT", action = "Copy" },
+	{ key = "V", mods = "CTRL|SHIFT", action = "Paste" },
+	{ key = "Z", mods = "CTRL",       action = "TogglePaneZoomState" },
+	{
+		key = "J",
+		mods = "SHIFT|ALT",
+		action = wezterm.action({ ActivateTabRelative = -1 }),
+	},
+	{
+		key = "K",
+		mods = "SHIFT|ALT",
+		action = wezterm.action({ ActivateTabRelative = 1 }),
+	},
+	{ key = "X", mods = "SHIFT|ALT", action = "ActivateCopyMode" },
+	{ key = " ", mods = "SHIFT|ALT", action = "QuickSelect" },
+}
+for i = 1, 8 do
+	table.insert(mykeys, {
+		key = tostring(i),
+		mods = "CTRL|ALT",
+		action = wezterm.action({ ActivateTab = i - 1 }),
+	})
+end
 return {
-
-	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium", stretch = "Normal", style = "Normal" }),
-
-	font_rules = {
-		{
-			italic = true,
-			font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium", stretch = "Normal", style = "Italic" }),
-		},
-		{
-			intensity = "Bold",
-			font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", stretch = "Normal", style = "Normal" }),
-		},
-		{
-			intensity = "Bold",
-			italic = true,
-			font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", stretch = "Normal", style = "Italic" }),
-		},
-	},
-
-	font_size = 10.0,
-
+	use_ime = true,
+	default_prog = { "/usr/bin/fish", "-l" },
+	-- default_prog = { "/usr/bin/zsh", "-l" },
+	font = wezterm.font_with_fallback({
+		"Sarasa Mono SC Nerd",
+		"JetBrainsMono Nerd Font",
+		"Consolas NF",
+		"FiraCode Nerd Font",
+		"CamingoCode Nerd Font",
+		"Hack Nerd Font",
+		"PlexCodePro Nerd Font Mono",
+		"CodeNewRoman Nerd Font",
+		"Operator Mono Lig",
+	}),
+	front_end = "OpenGL",
+	font_size = 14,
 	color_scheme = "Catppuccin",
+	enable_tab_bar = true,
+	tab_max_width = 20,
+	tab_bar_at_bottom = true,
+	hide_tab_bar_if_only_one_tab = true,
+	text_background_opacity = 1.0,
+	disable_default_key_bindings = true,
+	mouse_bindings = {
+		{
 
-	colors = {
-		indexed = { [16] = "#F8BD96", [17] = "#F5E0DC" },
-		split = "#161320",
-		visual_bell = "#302D41",
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = "NONE",
+			action = wezterm.action({
+				CompleteSelectionOrOpenLinkAtMouseCursor = "Clipboard",
+			}),
+		},
+		{
+			event = { Up = { streak = 1, button = "Left" } },
+			mods = "CTRL",
+			action = "OpenLinkAtMouseCursor",
+		},
 	},
-	window_padding = {
-		left = 20,
-		right = 20,
-		top = 20,
-		bottom = 20,
-	},
-
-	window_background_opacity = 0.98,
-	window_decorations = "RESIZE",
-	enable_tab_bar = false,
-	scrollback_lines = 5000,
-	enable_scroll_bar = false,
-	check_for_updates = false,
+	keys = mykeys,
+	window_background_opacity = 1.0,
 }
