@@ -26,9 +26,9 @@ stashed = ""
 
 #  󰥭     󰅂
 [character]
-success_symbol = "[󰅂](green)"
+success_symbol = "[](green)"
 error_symbol = "[❌](red)"
-vicmd_symbol = "[；](overlay0)"
+vimcmd_symbol = "[](overlay0)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
