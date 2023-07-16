@@ -2,5 +2,5 @@ set $term kitty
 set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 set $filemanager thunar
 set $editor nvim
-set $launcher nwg-drawer
-set $exit nwg-bar -p center -a middle -i 48 -s preset-0.css
+set $launcher nwg-drawer -c 6 -is 64 -fscol 2 -term kitty
+set $exit nwg-bar -p center -a middle -i 48
