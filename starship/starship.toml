@@ -5,22 +5,24 @@
 
 palette = "catppuccin_mocha"
 
-format="$directory$git_branch$git_status$character"
+format="$os$directory$git_branch$git_status$character"
 add_newline = false
 
-[custom.dir]
-command = 'echo .zshrc found' # shows output of command
-detect_files = ['.zshrc'] # can specify filters but wildcards are not supported
-when = ''' test "$HOME" = "$PWD" '''
-format = ' transcending [$output]($style)'
-style = 'bold red'
+[os]
+disabled = false
+format = "[$symbol]($style) "
+symbols.Ubuntu = ""
+symbols.Windows = ""
+style = "bold white"
 
 [directory]
-format = "[$path](blue) "
-truncation_length = 10
+# format = "[$path]($style) "
+home_symbol = "~"
+truncation_length = 2
 truncate_to_repo = false
 use_os_path_sep = false
-use_logical_path = true
+style = "blue"
+repo_root_style = 'bold green'
 
 [directory.substitutions]
 'X:/hub/' = "󰁥 "
