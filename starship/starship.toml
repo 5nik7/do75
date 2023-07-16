@@ -1,31 +1,68 @@
 ## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-# set you color palette
+
+add_newline = false
+scan_timeout = 10
 
 palette = "catppuccin_mocha"
 
-format="$os$directory$git_branch$git_status$character"
-add_newline = false
+format = """
+$username$hostname$fill
+$directory\
+$git_branch\
+$git_status\
+$character"""
 
-[os]
+[line_break]
 disabled = false
-format = "[$symbol]($style) "
-symbols.Ubuntu = ""
-symbols.Windows = ""
-style = "bold white"
+
+[fill]
+symbol = "-"
+style = "surface0"
+
+# [username]
+# format = '[](fg:peach bg:transparent bold)[󰁥 ](fg:crust bg:peach bold)[ ](fg:peach bg:transparent bold)'
+# show_always = true
+# disabled = false
+[status]
+disabled = false
+style = "bg:#282C34 fg:#ABB2BF"
+format = "[$symbol]($style)"
+symbol = "[ ](bg:#282C34 fg:#E06C75)"
+success_symbol = ""
+not_executable_symbol = "[ ](bg:#282C34 fg:#E06C75)"
+not_found_symbol = "[](bg:#282C34 fg:#CAAA6A)"
+sigint_symbol = "[ ](bg:#282C34 fg:#E06C75)"
+signal_symbol = "[ ](bg:#282C34 fg:#E06C75)"
+map_symbol = true
+
+[username]
+format = '[ 󰬾󰭀 󰁥 ](peach bold)'
+show_always = true
+disabled = false
 
 [directory]
-# format = "[$path]($style) "
-home_symbol = "~"
-truncation_length = 2
+truncation_length = 10
+truncation_symbol = " "
+format = "[$path]($style) "
 truncate_to_repo = false
 use_os_path_sep = false
 style = "blue"
-repo_root_style = 'bold green'
+repo_root_style = 'bold sky'
 
 [directory.substitutions]
-'X:/hub/' = "󰁥 "
+"/" = "  "
+"repos" = " "
+"git" = " "
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Trash" = " "
+".config" = ""
+"home" = "󱑺 $username"
+"~" = "󱑺"
 
 [git_branch]
 format = "[ $branch](bold mauve) "
@@ -38,11 +75,12 @@ renamed = ""
 deleted = ""
 stashed = ""
 
-#  󰥭     󰅂              󰀦 󰛄 󰝨 󰁥 ❌ 󰅖
+#  󰥭       󰅂                󰀦 󰛄 󰝨 󰁥 ❌   󰅖         󰅀󰅁󰅂 󰧞 󰇁 󰟒 󰖳 󰤃
 [character]
 success_symbol = "[](green)"
 error_symbol = "[](red)"
-vimcmd_symbol = "[](overlay0)"
+vimcmd_symbol = "[](overlay0)"
+
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

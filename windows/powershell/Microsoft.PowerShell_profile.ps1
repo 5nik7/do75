@@ -101,18 +101,12 @@ function lg {
 
 function dots {
     Set-Location "x:\hub\repos\do75\"
-    Clear-Host
-    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 function hub {
     Set-Location "x:\hub\"
-    Clear-Host
-    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 function repos {
     Set-Location "x:\hub\repos\"
-    Clear-Host
-    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 function q {
     Exit
@@ -132,14 +126,10 @@ function l { exa -F --all --long --no-filesize --no-user --no-time --git --group
 
 function .. {
     Set-Location ..
-    Clear-Host
-    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 
 function ... {
     Set-Location ..\..
-    Clear-Host
-    exa -F --all --long --no-filesize --no-user --no-time --git --group-directories-first --icons --no-permissions
 }
 
 Function Search-Alias {
@@ -219,6 +209,7 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
 }
+
 
 Invoke-Expression (&starship init powershell)
 
