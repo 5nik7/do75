@@ -8,6 +8,13 @@ palette = "catppuccin_mocha"
 format="$directory$git_branch$git_status$character"
 add_newline = false
 
+[custom.dir]
+command = 'echo .zshrc found' # shows output of command
+detect_files = ['.zshrc'] # can specify filters but wildcards are not supported
+when = ''' test "$HOME" = "$PWD" '''
+format = ' transcending [$output]($style)'
+style = 'bold red'
+
 [directory]
 format = "[$path](blue) "
 truncation_length = 10
@@ -16,7 +23,7 @@ use_os_path_sep = false
 use_logical_path = true
 
 [directory.substitutions]
-'X:/hub/' = " "
+'X:/hub/' = "󰁥 "
 
 [git_branch]
 format = "[ $branch](bold mauve) "
@@ -29,10 +36,10 @@ renamed = ""
 deleted = ""
 stashed = ""
 
-#  󰥭     󰅂
+#  󰥭     󰅂              󰀦 󰛄 󰝨 󰁥 ❌ 󰅖
 [character]
 success_symbol = "[](green)"
-error_symbol = "[❌](red)"
+error_symbol = "[](red)"
 vimcmd_symbol = "[](overlay0)"
 
 [palettes.catppuccin_mocha]
