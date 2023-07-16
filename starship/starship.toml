@@ -1,48 +1,38 @@
-add_newline = true
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+# set you color palette
 
 palette = "catppuccin_mocha"
 
-format = """
-$os$username$hostname $directory $git_branch$git_commit$git_state$git_status$character"""
+format="$directory$git_branch$git_status$character"
+add_newline = false
+
 
 [directory]
+format = "[$path](blue) "
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
-repo_root_format = """[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) """
-before_repo_root_style = 'overlay2'
-repo_root_style = 'bold underline blue'
-style = "bold blue"
+use_logical_path = true
 
-[fill]
-symbol = ""
-style = "surface0"
 
 [git_branch]
 format = "[ $branch](bold mauve) "
 
 [git_status]
 style = "bold yellow"
+format = "([ $all_status$ahead_behind]($style) )"
+ignore_submodules = true
+renamed = ""
+deleted = ""
 stashed = ""
 
-[os]
-format = '[$symbol](subtext0)'
-disabled = false
-
-[os.symbols]
-Alpine = '  '
-Arch = '  '
-Debian = '  '
-Linux = '  '
-Macos = '  '
-Ubuntu = '  '
-Windows = '󰖳 '
-Unknown = '  '
-
-#  󰥭       󰅂                󰀦 󰛄 󰝨 󰁥   󰅖         󰅀󰅁󰅂 󰧞 󰇁 󰟒 󰖳 󰤃
+#  󰥭     󰅂              󰀦 󰛄 󰝨 󰁥 ❌ 󰅖
 [character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[](overlay0)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
