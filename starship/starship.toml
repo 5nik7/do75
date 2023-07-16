@@ -1,111 +1,57 @@
-## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
-## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
-## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+add_newline = true
+format='''[\[$username($hostname)\]](white) $directory ([\[$git_branch(:$git_commit)(:$git_status)(:$git_state)\]](yellow))$line_break$character'''
+right_format = '''($jobs)($status)($cmd_duration)$time'''
 
-add_newline = false
-scan_timeout = 10
+[username]
+format = '[$user](blue)'
+show_always = true
 
-palette = "catppuccin_mocha"
+[hostname]
+format = '[@$hostname](cyan)'
 
-format = """
-$username$hostname$fill
-$directory\
-$git_branch\
-$git_status\
-$character"""
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vicmd_symbol = '[❮](bold blue)'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'green'
+truncation_length = 6
+truncate_to_repo = false
+truncation_symbol = '.../'
+
+[git_branch]
+format = '[$branch](yellow)'
+
+[git_commit]
+format = '[$hash](yellow)'
+
+[git_status]
+format = '[$all_status$ahead_behind](yellow)'
+
+[git_state]
+format = '[$state($progress_current/$progress_total)](yellow)'
 
 [line_break]
 disabled = false
 
-[fill]
-symbol = "-"
-style = "surface0"
+[time]
+format = '[\[$time\]](green)'
+disabled = false
 
-# [username]
-# format = '[](fg:peach bg:transparent bold)[󰁥 ](fg:crust bg:peach bold)[ ](fg:peach bg:transparent bold)'
-# show_always = true
-# disabled = false
+[cmd_duration]
+format = '[\[$duration\]](yellow)'
+min_time = 1
+show_milliseconds = true
+disabled = false
+
 [status]
-disabled = false
-style = "bg:#282C34 fg:#ABB2BF"
-format = "[$symbol]($style)"
-symbol = "[ ](bg:#282C34 fg:#E06C75)"
-success_symbol = ""
-not_executable_symbol = "[ ](bg:#282C34 fg:#E06C75)"
-not_found_symbol = "[](bg:#282C34 fg:#CAAA6A)"
-sigint_symbol = "[ ](bg:#282C34 fg:#E06C75)"
-signal_symbol = "[ ](bg:#282C34 fg:#E06C75)"
-map_symbol = true
-
-[username]
-format = '[ 󰬾󰭀 󰁥 ](peach bold)'
-show_always = true
+format = '[\[$status(:$common_meaning)(:$signal_name)\]](red)'
 disabled = false
 
-[directory]
-truncation_length = 10
-truncation_symbol = " "
-format = "[$path]($style) "
-truncate_to_repo = false
-use_os_path_sep = false
-style = "blue"
-repo_root_style = 'bold sky'
-
-[directory.substitutions]
-"/" = "  "
-"repos" = " "
-"git" = " "
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"Trash" = " "
-".config" = ""
-"home" = "󱑺 $username"
-"~" = "󱑺"
-
-[git_branch]
-format = "[ $branch](bold mauve) "
-
-[git_status]
-style = "bold yellow"
-format = "([ $all_status$ahead_behind]($style) )"
-ignore_submodules = true
-renamed = ""
-deleted = ""
-stashed = ""
-
-#  󰥭       󰅂                󰀦 󰛄 󰝨 󰁥 ❌   󰅖         󰅀󰅁󰅂 󰧞 󰇁 󰟒 󰖳 󰤃
-[character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
-vimcmd_symbol = "[](overlay0)"
-
-
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[jobs]
+format = '[\[$symbol(:$number)\]](cyan)'
+symbol = '⚙'
+symbol_threshold = 1
+number_threshold = 2
