@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/snikt/do75
+- /home/snikt/work5pace/do75
 startuppopupversion: 5
 customcommandshistory:
 - nvim zsh
