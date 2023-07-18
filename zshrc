@@ -25,8 +25,6 @@ export FZF_DEFAULT_OPTS="
 --border horizontal
 --height 40"
 
-
-
 # Configure and load plugins using Zinit's
 ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zinit}"
 
@@ -110,8 +108,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 ZSH_HIGHLIGHT_MAXLENGTH=512
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$color8,bold"
 
-if
- [[ -f "$DOTFILES/bash_aliases" ]]; then
+if [[ -f "$DOTFILES/bash_aliases" ]]; then
   source "$DOTFILES/bash_aliases"
 fi
 
