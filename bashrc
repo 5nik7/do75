@@ -63,7 +63,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-export DOTFILES="$HOME/do75"
+export DOTFILES="$HOME/.dotfiles"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

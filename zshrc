@@ -25,9 +25,6 @@ export FZF_DEFAULT_OPTS="
 --border horizontal
 --height 40"
 
-# Bat Congihuration
-export BAT_CONFIG_PATH="$DOTFILES/bat/bat.conf"
-
 # Configure and load plugins using Zinit's
 ZINIT_HOME="${ZINIT_HOME:-${XDG_DATA_HOME:-${HOME}/.local/share}/zinit}"
 
@@ -111,7 +108,22 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 ZSH_HIGHLIGHT_MAXLENGTH=512
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$color8,bold"
 
+if [[ -f "$DOTFILES/bash_aliases" ]]; then
+  source "$DOTFILES/bash_aliases"
+fi
+
+if [[ -f "$DOTFILES/zsh/theme" ]]; then
+  source "$DOTFILES/zsh/theme"
+fi
+
+if [[ -f "$DOTFILES/zsh/utility" ]]; then
+  source "$DOTFILES/zsh/utility"
+fi
+
 source $DOTFILES/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+# Bat Congihuration
+export BAT_CONFIG_PATH="$DOTFILES/bat/bat.conf"
 
 while read -r opt
 do
@@ -155,18 +167,6 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
-
-if [[ -f "$DOTFILES/bash_aliases" ]]; then
-  source "$DOTFILES/bash_aliases"
-fi
-
-if [[ -f "$DOTFILES/zsh/theme" ]]; then
-  source "$DOTFILES/zsh/theme"
-fi
-
-if [[ -f "$DOTFILES/zsh/utility" ]]; then
-  source "$DOTFILES/zsh/utility"
-fi
 
 # Load starship
 zinit ice as'command' from'gh-r' \

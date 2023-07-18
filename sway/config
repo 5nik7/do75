@@ -19,7 +19,7 @@ gaps inner 8
 gaps outer 8
 
 output * {
-  bg ~/.config/wallpapers/5.jpg fill
+  bg ~/.config/wallpapers/cat.jpg fill
   mode 2560x1410@170Hz scale 1
   pos 0 0
 }
@@ -78,8 +78,8 @@ set $up k
 set $right l
 
 # Your preferred terminal emulators
-set $term wezterm
-set $term-float wezterm
+set $term alacritty
+set $term-float alacritty
 
 set $code code
 
