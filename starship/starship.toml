@@ -6,7 +6,7 @@
 palette = "catppuccin_mocha"
 
 format="$directory$git_branch$git_status$character"
-add_newline = true
+add_newline = false
 
 
 [directory]
@@ -61,3 +61,4 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
