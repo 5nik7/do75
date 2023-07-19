@@ -2,7 +2,7 @@
 ## ░▄▀░░▀▀█░█▀█░█▀▄░█░░
 ## ░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 
-export DOTFILES="$HOME/do75"
+export DOTFILES="$HOME/.dotfiles"
 
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
@@ -120,7 +120,7 @@ if [[ -f "$DOTFILES/zsh/utility" ]]; then
   source "$DOTFILES/zsh/utility"
 fi
 
-source $DOTFILES/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# source $DOTFILES/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Bat Congihuration
 export BAT_CONFIG_PATH="$DOTFILES/bat/bat.conf"
